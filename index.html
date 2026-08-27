@@ -1,89 +1,110 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simão Dantas — Foundational Software Developer</title>
-  <meta name="description" content="Portfolio of Simão Dantas, a foundational software developer and recent TGPSI graduate from Portugal." />
-
+  <title>Dantas</title>
+  <meta name="description" content="Personal site and projects." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%2300a6fb'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Arial' font-weight='700' font-size='18' fill='%23051923'%3ED%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet"
   />
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="grid-bg" aria-hidden="true"></div>
+  <a class="skip-link" href="#projects">Skip to projects</a>
 
-  <header class="site-header">
-    <a class="mark" href="#top">SD<span class="mark-dot">.</span></a>
-    <nav class="nav" aria-label="Primary">
-      <a href="#top" class="nav-link is-active">Home</a>
-      <a href="#contact" class="nav-link">Contact</a>
-    </nav>
+  <header class="hero">
+    <div class="hero-inner">
+      <!-- Placeholder photo: swap this <svg> for an <img src="your-photo.jpg" alt="Your name"> -->
+      <div class="avatar" role="img" aria-label="Placeholder profile photo">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00a6fb" />
+              <stop offset="100%" stop-color="#0582ca" />
+            </linearGradient>
+          </defs>
+          <rect width="200" height="200" fill="url(#avatarGrad)" />
+          <text
+            x="100"
+            y="132"
+            text-anchor="middle"
+            font-family="'Space Grotesk', sans-serif"
+            font-size="92"
+            font-weight="700"
+            fill="#f4fafd"
+          >D</text>
+        </svg>
+      </div>
+
+      <h1 class="name">Dantas</h1>
+      <p class="tagline">I build clean software and pixel-perfect worlds.</p>
+
+      <a class="scroll-cue" href="#projects" aria-label="Scroll to projects"></a>
+    </div>
   </header>
 
-  <main id="top">
-    <section class="hero" aria-labelledby="hero-name">
-      <p class="eyebrow">
-        <span class="status-dot" aria-hidden="true"></span>
-        PORTFOLIO — REV 0.1 · PORTUGAL
-      </p>
+  <main>
+    <section id="projects" class="projects">
+      <h2 class="section-heading">Personal Projects</h2>
 
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <h1 id="hero-name">Simão Dantas</h1>
-          <p class="role">Foundational Software Developer</p>
-          <p class="intro">
-            Recent 12th-grade graduate in
-            <abbr title="Técnico de Gestão e Programação de Sistemas Informáticos">TGPSI</abbr>
-            from Portugal, combining structured technical education with hands-on
-            project experience. Focused on building robust applications and
-            continuously expanding my technical stack.
-          </p>
-        </div>
+      <div class="project-grid">
+        <a class="project-card" href="underveil.html">
+          <div class="project-thumb">
+            <svg viewBox="0 0 64 36" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" aria-hidden="true">
+              <rect width="64" height="36" fill="#003554" />
 
-        <div class="terminal" aria-label="Terminal summary of Simão's profile">
-          <div class="terminal-bar">
-            <span class="terminal-dot"></span>
-            <span class="terminal-dot"></span>
-            <span class="terminal-dot"></span>
-            <span class="terminal-title">simao@dantas:~</span>
+              <!-- stars -->
+              <rect x="6" y="4" width="1.5" height="1.5" fill="#00a6fb" opacity="0.9" />
+              <rect x="16" y="8" width="1.5" height="1.5" fill="#0582ca" opacity="0.8" />
+              <rect x="24" y="3" width="1.5" height="1.5" fill="#00a6fb" opacity="0.7" />
+              <rect x="58" y="6" width="1.5" height="1.5" fill="#00a6fb" opacity="0.8" />
+              <rect x="10" y="14" width="1.5" height="1.5" fill="#0582ca" opacity="0.6" />
+
+              <!-- moon -->
+              <g fill="#00a6fb">
+                <rect x="44" y="4" width="8" height="2" />
+                <rect x="42" y="6" width="12" height="2" />
+                <rect x="42" y="8" width="12" height="2" />
+                <rect x="44" y="10" width="8" height="2" />
+              </g>
+
+              <!-- far hill -->
+              <path
+                d="M0,36 L0,26 L4,26 L4,24 L8,24 L8,22 L12,22 L12,20 L16,20 L16,22 L20,22 L20,18 L24,18 L24,16 L28,16 L28,14 L32,14 L32,16 L36,16 L36,20 L40,20 L40,24 L44,24 L44,22 L48,22 L48,20 L52,20 L52,24 L56,24 L56,26 L60,26 L60,28 L64,28 L64,36 Z"
+                fill="#006494"
+              />
+
+              <!-- near hill -->
+              <path
+                d="M0,36 L0,32 L8,32 L8,30 L18,30 L18,32 L30,32 L30,28 L38,28 L38,32 L50,32 L50,30 L58,30 L58,32 L64,32 L64,36 Z"
+                fill="#051923"
+              />
+
+              <!-- tiny sprite on the peak -->
+              <g fill="#051923">
+                <rect x="29" y="10" width="2" height="2" />
+                <rect x="28" y="12" width="4" height="2" />
+              </g>
+            </svg>
           </div>
-          <div class="terminal-body" id="terminal-body">
-            <noscript><pre class="terminal-fallback">$ whoami
-Simão Dantas
-
-$ role
-Foundational Software Developer
-
-$ education
-TGPSI · 12th Grade · Portugal
-
-$ status
-Expanding the stack_</pre></noscript>
+          <div class="project-info">
+            <h3 class="project-title">UnderVeil</h3>
+            <p class="project-summary">A 2D pixel-art indie game, made in GameMaker.</p>
           </div>
-        </div>
+        </a>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer" id="contact">
-    <div class="footer-inner">
-      <p class="footer-label">Get in touch</p>
-      <div class="footer-links">
-        <!-- TODO: swap these placeholders for your real links -->
-        <a href="mailto:your.email@example.com">Email</a>
-        <a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com/in/your-username" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-      <p class="footer-copy">© 2026 Simão Dantas. Built from scratch, one commit at a time.</p>
-    </div>
+  <footer class="site-footer">
+    <p>&copy; 2026 Dantas.</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
+
+
