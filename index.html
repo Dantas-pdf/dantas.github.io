@@ -17,28 +17,20 @@
 <body>
   <a class="skip-link" href="#projects">Skip to projects</a>
 
-  <header class="hero">
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="logo" href="index.html" aria-label="Dantas home">SD</a>
+      <nav class="site-nav">
+        <a href="#projects">Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
     <div class="hero-inner">
-      <!-- Placeholder photo: swap this <svg> for an <img src="your-photo.jpg" alt="Your name"> -->
-      <div class="avatar" role="img" aria-label="Placeholder profile photo">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <defs>
-            <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#00a6fb" />
-              <stop offset="100%" stop-color="#0582ca" />
-            </linearGradient>
-          </defs>
-          <rect width="200" height="200" fill="url(#avatarGrad)" />
-          <text
-            x="100"
-            y="132"
-            text-anchor="middle"
-            font-family="'Space Grotesk', sans-serif"
-            font-size="92"
-            font-weight="700"
-            fill="#f4fafd"
-          >D</text>
-        </svg>
+      <!-- Replace Beauty.png with your own photo whenever you want a new one -->
+      <div class="avatar">
+        <img src="Beauty.png" alt="Simão Dantas" />
       </div>
 
       <h1 class="name">Dantas</h1>
@@ -46,7 +38,7 @@
 
       <a class="scroll-cue" href="#projects" aria-label="Scroll to projects"></a>
     </div>
-  </header>
+  </section>
 
   <main>
     <section id="projects" class="projects">
@@ -55,42 +47,7 @@
       <div class="project-grid">
         <a class="project-card" href="UnderVeil.html">
           <div class="project-thumb">
-            <svg viewBox="0 0 64 36" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" aria-hidden="true">
-              <rect width="64" height="36" fill="#003554" />
-
-              <!-- stars -->
-              <rect x="6" y="4" width="1.5" height="1.5" fill="#00a6fb" opacity="0.9" />
-              <rect x="16" y="8" width="1.5" height="1.5" fill="#0582ca" opacity="0.8" />
-              <rect x="24" y="3" width="1.5" height="1.5" fill="#00a6fb" opacity="0.7" />
-              <rect x="58" y="6" width="1.5" height="1.5" fill="#00a6fb" opacity="0.8" />
-              <rect x="10" y="14" width="1.5" height="1.5" fill="#0582ca" opacity="0.6" />
-
-              <!-- moon -->
-              <g fill="#00a6fb">
-                <rect x="44" y="4" width="8" height="2" />
-                <rect x="42" y="6" width="12" height="2" />
-                <rect x="42" y="8" width="12" height="2" />
-                <rect x="44" y="10" width="8" height="2" />
-              </g>
-
-              <!-- far hill -->
-              <path
-                d="M0,36 L0,26 L4,26 L4,24 L8,24 L8,22 L12,22 L12,20 L16,20 L16,22 L20,22 L20,18 L24,18 L24,16 L28,16 L28,14 L32,14 L32,16 L36,16 L36,20 L40,20 L40,24 L44,24 L44,22 L48,22 L48,20 L52,20 L52,24 L56,24 L56,26 L60,26 L60,28 L64,28 L64,36 Z"
-                fill="#006494"
-              />
-
-              <!-- near hill -->
-              <path
-                d="M0,36 L0,32 L8,32 L8,30 L18,30 L18,32 L30,32 L30,28 L38,28 L38,32 L50,32 L50,30 L58,30 L58,32 L64,32 L64,36 Z"
-                fill="#051923"
-              />
-
-              <!-- tiny sprite on the peak -->
-              <g fill="#051923">
-                <rect x="29" y="10" width="2" height="2" />
-                <rect x="28" y="12" width="4" height="2" />
-              </g>
-            </svg>
+            <img src="UnderVeil.png" alt="UnderVeil game screenshot" />
           </div>
           <div class="project-info">
             <h3 class="project-title">UnderVeil</h3>
@@ -106,5 +63,3 @@
   </footer>
 </body>
 </html>
-
-
