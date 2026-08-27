@@ -17,7 +17,16 @@
 <body>
   <a class="skip-link" href="#projects">Skip to projects</a>
 
-  <header class="site-header">
+  <header class="site-header site-header-static" aria-hidden="false">
+    <div class="site-header-inner">
+      <a class="logo" href="index.html" aria-label="Dantas home">SD</a>
+      <nav class="site-nav">
+        <a href="#projects">Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <header class="site-header site-header-scrolled" aria-hidden="true">
     <div class="site-header-inner">
       <a class="logo" href="index.html" aria-label="Dantas home">SD</a>
       <nav class="site-nav">
@@ -27,35 +36,157 @@
   </header>
 
   <section class="hero">
-    <div class="hero-inner">
-      <!-- Replace Beauty.png with your own photo whenever you want a new one -->
+    <div class="desktop">
+      <div class="win" id="win-about" role="dialog" aria-label="About window">
+        <div class="titlebar">
+          <div class="title">About — Dantas</div>
+          <div class="title-controls">
+            <button class="btn-win">_</button>
+            <button class="btn-win">◻</button>
+            <button class="btn-win close">X</button>
+          </div>
+        </div>
+        <div class="window-body">
+          <div class="hero-inner">
       <div class="avatar">
         <img src="Images\Beauty.png" alt="Simão Dantas" />
       </div>
 
-      <h1 class="name">Dantas</h1>
-      <p class="tagline">I'm Dantas, a Junior Developer looking to improve my skills!.</p>
+      <h1 class="name">Simão Dantas</h1>
+      <p class="tagline">Hi, I'm a Junior Developer looking to improve my skills! </p>
+      <br />
+      <p class="tagline"> Here you'll learn more about me and my projects </p>
 
-      <a class="scroll-cue" href="#projects" aria-label="Scroll to projects"></a>
-    </div>
-  </section>
+            <a class="scroll-cue" href="#projects" aria-label="Scroll to projects"></a>
+          </div>
+        </div>
+      </div>
+        </div>
+        </section>
 
   <main>
     <section id="projects" class="projects">
       <h2 class="section-heading">Personal Projects</h2>
 
-      <div class="project-grid">
-        <a class="project-card" href="UnderVeil.html">
-          <div class="project-thumb">
-            <img src="Images\UnderVeil.png" alt="UnderVeil game screenshot" />
+      <div class="projects-list">
+        <!-- UnderVeil project window (styled like an old video player) -->
+        <div class="win project-win square" id="win-underveil" role="dialog" aria-label="UnderVeil window">
+          <div class="titlebar">
+            <div class="title">UnderVeil</div>
+            <div class="title-controls">
+              <button class="btn-win">_</button>
+              <button class="btn-win">◻</button>
+              <button class="btn-win close">X</button>
+            </div>
           </div>
-          <div class="project-info">
-            <h3 class="project-title">UnderVeil</h3>
-            <p class="project-summary">A 2D pixel-art indie RogueLike, being developed in GameMaker.</p>
+          <div class="window-body">
+            <div class="video-player">
+              <img src="Images/UnderVeil.png" alt="UnderVeil video" />
+              <div class="play-overlay">▶</div>
+            </div>
+            <div class="video-meta">
+              <h3 class="project-title">UnderVeil</h3>
+              <p class="project-summary">A 2D pixel-art indie RogueLike, being developed in GameMaker.</p>
+              <a class="btn btn-outline" href="UnderVeil.html">Open</a>
+            </div>
           </div>
-        </a>
+        </div>
+        <!-- Calorie Tracker project window -->
+        <div class="win project-win square" id="win-calorie" role="dialog" aria-label="Calorie Tracker window">
+          <div class="titlebar">
+            <div class="title">Calorie Tracker</div>
+            <div class="title-controls">
+              <button class="btn-win">_</button>
+              <button class="btn-win">◻</button>
+              <button class="btn-win close">X</button>
+            </div>
+          </div>
+          <div class="window-body">
+            <div class="video-player">
+              <img src="Images/CaloriePlaceholder.png" alt="Calorie Tracker" />
+            </div>
+            <div class="video-meta">
+              <h3 class="project-title">Calorie Tracker</h3>
+              <p class="project-summary">Track daily calories, set weight goals, scan barcodes, and build a food database.</p>
+              <a class="btn btn-outline" href="CalorieTracker.html">Open</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+
+    <section id="skills" class="skills">
+      <h2 class="section-heading">Hard Skills</h2>
+
+      <div class="skills-list">
+        <div class="win skill-win" id="skill-html" role="img" aria-label="HTML skill">
+          <div class="titlebar">
+            <div class="title">HTML</div>
+            <div class="title-controls"><button class="btn-win">_</button><button class="btn-win">◻</button><button class="btn-win close">X</button></div>
+          </div>
+          <div class="window-body">
+            <img src="Images/Logos/HTML5_logo.png" alt="HTML" />
+            <div class="skill-name">HTML</div>
+          </div>
+        </div>
+
+        <div class="win skill-win" id="skill-css" role="img" aria-label="CSS skill">
+          <div class="titlebar">
+            <div class="title">CSS</div>
+            <div class="title-controls"><button class="btn-win">_</button><button class="btn-win">◻</button><button class="btn-win close">X</button></div>
+          </div>
+          <div class="window-body">
+            <img src="Images/Logos/CSS3_logo.png" alt="CSS" />
+            <div class="skill-name">CSS</div>
+          </div>
+        </div>
+
+        <div class="win skill-win" id="skill-js" role="img" aria-label="JavaScript skill">
+          <div class="titlebar">
+            <div class="title">JavaScript</div>
+            <div class="title-controls"><button class="btn-win">_</button><button class="btn-win">◻</button><button class="btn-win close">X</button></div>
+          </div>
+          <div class="window-body">
+            <img src="Images/Logos/Javascript_logo.png" alt="JavaScript" />
+            <div class="skill-name">JavaScript</div>
+          </div>
+        </div>
+
+        <div class="win skill-win" id="skill-sql" role="img" aria-label="MySQL skill">
+          <div class="titlebar">
+            <div class="title">MySQL</div>
+            <div class="title-controls"><button class="btn-win">_</button><button class="btn-win">◻</button><button class="btn-win close">X</button></div>
+          </div>
+          <div class="window-body">
+            <img src="Images/Logos/MySQL_logo.png" alt="MySQL" />
+            <div class="skill-name">MySQL</div>
+          </div>
+        </div>
+
+        <div class="win skill-win" id="skill-vercel" role="img" aria-label="Vercel skill">
+          <div class="titlebar">
+            <div class="title">Vercel</div>
+            <div class="title-controls"><button class="btn-win">_</button><button class="btn-win">◻</button><button class="btn-win close">X</button></div>
+          </div>
+          <div class="window-body">
+            <img src="Images/Logos/vercel.logo.svg" alt="Vercel" />
+            <div class="skill-name">Vercel</div>
+          </div>
+        </div>
+
+        <div class="win skill-win" id="skill-supabase" role="img" aria-label="Supabase skill">
+          <div class="titlebar">
+            <div class="title">Supabase</div>
+            <div class="title-controls"><button class="btn-win">_</button><button class="btn-win">◻</button><button class="btn-win close">X</button></div>
+          </div>
+          <div class="window-body">
+            <img src="Images/Logos/supabase_logo.png" alt="Supabase" />
+            <div class="skill-name">Supabase</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
@@ -65,5 +196,6 @@
     </div>
     <p>&copy; 2026 Dantas.</p>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>

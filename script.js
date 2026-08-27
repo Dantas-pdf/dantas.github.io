@@ -82,3 +82,59 @@ if (body) {
     typeSequence();
   }
 }
+
+// Simple draggable windows and focus stacking for Windows 98 look
+;(function () {
+  const wins = document.querySelectorAll('.win');
+  let topZ = 100;
+
+  wins.forEach((win) => {
+    // bring to front on mousedown (focus-only)
+    win.addEventListener('mousedown', () => {
+      wins.forEach(w => w.classList.remove('focused'));
+      win.classList.add('focused');
+      topZ++;
+      win.style.zIndex = topZ;
+    });
+    // intentionally do not attach drag or close handlers so windows
+    // are fixed and cannot be moved or closed by the user
+  });
+})();
+
+// Fade in windows on first load with a slight stagger
+document.addEventListener('DOMContentLoaded', () => {
+  const wins = Array.from(document.querySelectorAll('.win'));
+  wins.forEach((win, i) => {
+    setTimeout(() => win.classList.add('visible'), 100 + i * 80);
+  });
+});
+
+// Header reveal on scroll: show/hide .site-header-scrolled while keeping a static header visible
+;(function () {
+  const staticHeader = document.querySelector('.site-header.site-header-static');
+  const scHeader = document.querySelector('.site-header.site-header-scrolled');
+  if (!staticHeader || !scHeader) return;
+  const threshold = 160; // px scrolled before scrolled header appears
+
+  function updateHeader() {
+    const y = window.scrollY || window.pageYOffset;
+    if (y > threshold) {
+      if (!scHeader.classList.contains('visible')) {
+        scHeader.classList.add('visible');
+        scHeader.setAttribute('aria-hidden', 'false');
+      }
+    } else {
+      if (scHeader.classList.contains('visible')) {
+        scHeader.classList.remove('visible');
+        scHeader.setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    window.requestAnimationFrame(updateHeader);
+  }, { passive: true });
+
+  // initialize
+  updateHeader();
+})();

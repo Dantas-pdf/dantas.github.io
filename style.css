@@ -5,12 +5,6 @@
    and Ink Black of the projects below — you scroll "under the veil."
    ======================================================================== */
 :root {
-  --fresh-sky: #00a6fb;
-  --steel-blue: #0582ca;
-  --baltic-blue: #006494;
-  --deep-space: #003554;
-  --ink-black: #051923;
-
   --paper: #f4fafd;
   --ink-black-70: rgba(5, 25, 35, 0.7);
 
@@ -24,8 +18,27 @@
   --space-4: 3rem;
   --space-5: 5rem;
 
-  --max-width: 72rem;
+  --max-width: 100rem;
   --header-height: 6rem;
+
+  /* New site palette (index) */
+  --c-dark: #2C2C2C; /* dark gray */
+  --c-red: #853953;
+  --c-purple: #612D53;
+  --c-light: #F3F4F4;
+
+  --paper: var(--c-light);
+  --ink-black: var(--c-dark);
+}
+
+/* Windows 98 UI tokens */
+:root {
+  --win-bg: #c0c0c0;
+  --win-border-light: #ffffff;
+  --win-border-dark: #404040;
+  --win-title-bg: #000080;
+  --win-title-color: #ffffff;
+  --win-button-face: #e0e0e0;
 }
 
 /* ========================================================================
@@ -45,7 +58,7 @@ body {
   margin: 0;
   font-family: var(--font-body);
   color: var(--paper);
-  background: var(--ink-black);
+  background: var(--c-dark);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -65,7 +78,7 @@ a {
   left: -999px;
   top: 0;
   background: var(--paper);
-  color: var(--ink-black);
+  color: var(--c-dark);
   padding: var(--space-1) var(--space-2);
   z-index: 100;
   border-radius: 0 0 0.5rem 0;
@@ -76,7 +89,7 @@ a {
 }
 
 :focus-visible {
-  outline: 3px solid var(--fresh-sky);
+  outline: 3px solid var(--c-light);
   outline-offset: 3px;
 }
 
@@ -98,15 +111,47 @@ a {
    Fixed, translucent bar that floats above the hero/page-hero gradients.
    ======================================================================== */
 .site-header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   z-index: 50;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  background: rgba(5, 25, 35, 0.35);
-  border-bottom: 1px solid rgba(244, 250, 253, 0.08);
+  background: transparent;
+  border-bottom: none;
+  box-shadow: none;
+  transition: background-color 280ms ease, box-shadow 280ms ease, border-bottom-color 280ms ease, transform 280ms ease;
+}
+
+/* Static header that always stays on top (minimal/translucent) */
+.site-header.site-header-static {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  background: transparent;
+  border-bottom: none;
+}
+
+/* Scrolled header: hidden by default, appears smoothly when user scrolls */
+.site-header.site-header-scrolled {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(192,192,192,0.5); /* ~50% opacity */
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  border-bottom: 2px solid var(--win-border-dark);
+  box-shadow: inset 1px 1px 0 var(--win-border-light);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 320ms ease, transform 320ms ease;
+}
+.site-header.site-header-scrolled.visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .site-header-inner {
@@ -126,8 +171,8 @@ a {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--fresh-sky), var(--steel-blue));
-  color: var(--ink-black);
+  background: var(--win-button-face);
+  color: var(--c-dark);
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1rem;
@@ -149,52 +194,54 @@ a {
 }
 
 .site-nav a {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-family: Tahoma, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
   text-decoration: none;
-  color: var(--paper);
-  padding: 0.45rem 0.9rem;
-  border-radius: 999px;
-  border: 1px solid rgba(244, 250, 253, 0.25);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  transition: border-color 0.18s ease, background-color 0.18s ease, transform 0.12s ease;
+  color: var(--c-dark);
+  padding: 0.35rem 0.6rem;
+  border: 2px solid var(--win-border-dark);
+  background: var(--win-button-face);
+  box-shadow: inset 1px 1px 0 var(--win-border-light), 1px 1px 0 var(--win-border-dark);
 }
 
 .site-nav a:hover,
 .site-nav a:focus-visible {
-  border-color: var(--fresh-sky);
-  background: rgba(0, 166, 251, 0.14);
+  transform: translateY(-1px);
 }
 
 /* Generic button styles used across the site (footer, small CTAs) */
 .btn {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-family: Tahoma, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
   text-decoration: none;
-  color: var(--paper);
-  padding: 0.45rem 0.9rem;
-  border-radius: 0.5rem;
+  color: var(--c-dark);
+  padding: 0.35rem 0.7rem;
+  border-radius: 0.15rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  transition: transform 0.12s ease, background-color 0.18s ease, border-color 0.18s ease;
+  transition: transform 0.12s ease, background-color 0.12s ease, border-color 0.12s ease;
+  background: var(--win-button-face);
+  border: 2px solid var(--win-border-dark);
+  box-shadow: inset 1px 1px 0 var(--win-border-light), 1px 1px 0 var(--win-border-dark);
 }
 
 .btn-outline {
-  background: transparent;
-  border: 1px solid rgba(244, 250, 253, 0.25);
+  background: var(--win-button-face);
+  border: 2px solid var(--win-border-dark);
+  color: var(--c-dark);
+  box-shadow: inset 1px 1px 0 var(--win-border-light), 1px 1px 0 var(--win-border-dark);
 }
 
+.btn:hover,
+.btn:focus-visible,
 .btn-outline:hover,
 .btn-outline:focus-visible {
-  border-color: var(--fresh-sky);
-  background: rgba(0, 166, 251, 0.12);
   transform: translateY(-1px);
+  background: #f6f6f6;
 }
 
 .footer-actions {
@@ -214,7 +261,11 @@ a {
   justify-content: center;
   text-align: center;
   padding: var(--space-4) var(--space-2);
-  background: linear-gradient(180deg, var(--fresh-sky) 0%, var(--steel-blue) 100%);
+  background-image: url("Images/windows95.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--c-dark);
   position: relative;
   overflow: hidden;
 }
@@ -222,9 +273,12 @@ a {
 .hero-inner {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-2);
-  max-width: 34rem;
+  max-width: calc(var(--max-width) - 2rem);
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: Tahoma, Arial, sans-serif;
 }
 
 .avatar {
@@ -233,7 +287,7 @@ a {
   border-radius: 50%;
   overflow: hidden;
   box-shadow: 0 1.5rem 3rem var(--ink-black-70);
-  border: 3px solid rgba(244, 250, 253, 0.35);
+  border: 3px solid rgb(0, 0, 0);
 }
 
 .avatar svg,
@@ -294,15 +348,16 @@ a {
    through Baltic Blue and Deep Space to Ink Black before the footer.
    ======================================================================== */
 .projects {
-  background: linear-gradient(
-    180deg,
-    var(--steel-blue) 0%,
-    var(--baltic-blue) 30%,
-    var(--deep-space) 65%,
-    var(--ink-black) 100%
-  );
+  /* Background image for projects section (fallback to brand red) */
+  background-color: var(--c-red);
+  background-image: url("Images/ProjectsBG.png");
+  /* stretch image to fill width while preserving its aspect ratio (height unchanged) */
+  background-size: 100% auto;
+  background-position: center top;
+  background-repeat: no-repeat;
   padding: var(--space-5) var(--space-2) var(--space-5);
   scroll-margin-top: var(--header-height);
+  color: var(--paper);
 }
 
 .section-heading {
@@ -316,11 +371,204 @@ a {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 20rem));
-  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
   gap: var(--space-3);
+  max-width: calc(var(--max-width) - 2rem);
+  margin: 0 auto;
+}
+
+.projects-list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: calc(var(--max-width) - 2rem);
+  margin: 0 auto;
+}
+
+.project-win {
+  width: 22rem;
+}
+
+/* Square project windows (UnderVeil, Calorie Tracker) */
+.project-win.square {
+  width: 20rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.project-win.square .window-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem;
+}
+
+.project-win.square .video-player {
+  width: calc(100% - 1rem);
+  height: 11rem;
+  margin: 0 auto;
+}
+
+.project-win.square .video-meta {
+  text-align: center;
+}
+
+/* ========================================================================
+   HARD SKILLS
+   Small Windows-98 tiles for each skill (smaller, non-interactive)
+   ======================================================================== */
+.skills {
+  background-color: var(--c-dark);
+  color: var(--paper);
+  padding: var(--space-5) var(--space-2);
+}
+
+.skills-list {
+  --skill-gap: 0.6rem;
+  display: flex;
+  gap: var(--skill-gap);
+  flex-wrap: nowrap; /* single horizontal row */
+  justify-content: center;
+  align-items: flex-start;
   max-width: var(--max-width);
   margin: 0 auto;
+  padding: 0.75rem 0;
+  overflow: visible; /* ensure no scrollbar */
+}
+
+.skill-win {
+  /* slightly larger fixed square so tiles are more visible */
+  flex: 0 0 13rem;
+  width: 13rem;
+  height: 13rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 0;
+  border: 2px solid var(--win-border-dark);
+  background: var(--win-bg);
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+  margin: 0 0.4rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.skill-win .titlebar {
+  padding: 0.28rem 0.6rem;
+  font-size: 0.85rem;
+}
+
+.skill-win .window-body {
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  flex: 1 1 auto;
+}
+
+.skill-win img {
+  /* normalize logo sizes so all appear consistent */
+  width: 4.6rem;
+  height: 4.6rem;
+  object-fit: contain;
+  display: block;
+  margin: 0.6rem auto 0;
+}
+
+@media (max-width: 680px) {
+  .skill-win img {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+}
+
+.skill-name {
+  display: block;
+  margin: 0.45rem 0 0 0;
+  line-height: 1.1;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--c-dark);
+  background: transparent;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+}
+
+/* disable interaction on skill title controls/buttons */
+.skill-win .title-controls,
+.skill-win .title-controls .btn-win {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+@media (max-width: 680px) {
+  .skills-list { --skill-gap: 0.4rem; }
+  .skill-win { padding: 0.18rem; flex: 0 0 9.5rem; width: 9.5rem; height: 9.5rem; margin: 0 0.35rem; }
+  .skill-win .titlebar { padding: 0.12rem 0.18rem; }
+  .skill-name { font-size: 0.66rem; }
+  .skill-win img { width: 3.2rem; height: 3.2rem; }
+}
+
+/* Make titlebar smaller for skill tiles */
+.skill-win .titlebar {
+  padding: 0.18rem 0.35rem;
+  font-size: 0.72rem;
+}
+
+.skill-win .title {
+  font-size: 0.72rem;
+}
+
+.skill-win .title-controls .btn-win {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-left: 0.2rem;
+}
+
+.skill-win .window-body {
+  padding: 0.35rem;
+}
+
+.video-player {
+  width: 100%;
+  height: 12rem;
+  background: #000;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border: 4px solid #222;
+  box-shadow: inset 2px 2px 0 #444;
+}
+
+.video-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.play-overlay {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255,255,255,0.95);
+  font-size: 2.2rem;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.6);
+  pointer-events: none;
+}
+
+.video-meta {
+  padding-top: 0.75rem;
 }
 
 .project-card {
@@ -328,41 +576,43 @@ a {
   flex-direction: column;
   aspect-ratio: 1 / 1;
   text-decoration: none;
-  color: var(--paper);
-  border-radius: 0.75rem;
-  overflow: hidden;
-  background: var(--ink-black);
-  border: 1px solid rgba(244, 250, 253, 0.12);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  color: var(--c-dark);
+  border-radius: 0;
+  overflow: visible;
+  background: var(--win-bg);
+  border: 2px solid var(--win-border-dark);
+  box-shadow: 2px 2px 0 var(--win-border-dark), inset 1px 1px 0 var(--win-border-light);
 }
 
 .project-card:hover,
 .project-card:focus-visible {
-  transform: translateY(-0.35rem);
-  box-shadow: 0 1.5rem 2.5rem var(--ink-black-70);
-  border-color: var(--fresh-sky);
+  transform: translateY(-1px);
 }
+
 
 .project-thumb {
-  flex: 1 1 62%;
-  background: var(--deep-space);
+  flex: 0 0 60%;
+  background: var(--c-dark);
+  overflow: hidden;
 }
 
-.project-thumb svg,
-.project-thumb img {
+.project-thumb img,
+.project-thumb svg {
   width: 100%;
   height: 100%;
   object-fit: fill;
+  display: block;
 }
 
 .project-info {
-  flex: 0 0 38%;
-  padding: var(--space-2) var(--space-3);
+  flex: 1 1 40%;
+  padding: calc(var(--space-2) + 0.25rem) var(--space-3);
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 0.35rem;
-  border-top: 1px solid rgba(0, 166, 251, 0.25);
+  background: var(--c-dark);
+  border-top: 1px solid rgba(133, 57, 83, 0.25);
 }
 
 .project-title {
@@ -382,21 +632,30 @@ a {
    FOOTER
    ======================================================================== */
 .site-footer {
-  background: var(--ink-black);
+  background-color: var(--win-bg);
   text-align: center;
   padding: var(--space-3) var(--space-2);
   font-size: 0.85rem;
-  color: rgba(244, 250, 253, 0.55);
+  color: var(--c-lightk);
 }
 
 /* ========================================================================
    PROJECT DETAIL PAGE (underveil.html)
    ======================================================================== */
 .project-hero {
-  background: linear-gradient(180deg, var(--deep-space) 0%, var(--ink-black) 100%);
+  background: linear-gradient(180deg, var(--c-dark) 0%, var(--c-dark) 100%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   padding: var(--space-4) var(--space-2) var(--space-5);
+  flex: 1 1 60%;
+  padding: calc(var(--space-2) + 0.25rem) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.35rem;
+  border-top: 1px solid rgba(133, 57, 83, 0.25);
 }
-
 .back-link {
   display: inline-flex;
   align-items: center;
@@ -410,7 +669,7 @@ a {
 
 .back-link:hover,
 .back-link:focus-visible {
-  color: var(--fresh-sky);
+  color: var(--c-light);
 }
 
 .project-hero-content {
@@ -424,7 +683,7 @@ a {
   font-family: var(--font-pixel);
   font-size: 0.55rem;
   letter-spacing: 0.05em;
-  background: var(--baltic-blue);
+  background: var(--c-purple);
   color: var(--paper);
   padding: 0.5rem 0.75rem;
   border-radius: 0.25rem;
@@ -437,8 +696,8 @@ a {
   font-size: clamp(1.6rem, 3vw + 1rem, 3rem);
   line-height: 1.4;
   margin: 0 0 var(--space-2);
-  color: var(--fresh-sky);
-  text-shadow: 0.15rem 0.15rem 0 var(--deep-space);
+  color: var(--c-light);
+  text-shadow: 0.15rem 0.15rem 0 var(--c-dark);
 }
 
 .game-tagline {
@@ -462,8 +721,9 @@ a {
   margin: 0;
   border-radius: 0.5rem;
   overflow: hidden;
-  border: 1px solid rgba(0, 166, 251, 0.25);
-  background: var(--deep-space);
+  border: 1px solid rgba(72, 11, 11, 0.25);
+  background: #b31515;
+  position: relative;
 }
 
 .gallery svg {
@@ -472,15 +732,44 @@ a {
 }
 
 .gallery figcaption {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   text-align: center;
-  padding: 0.5rem;
-  color: rgba(244, 250, 253, 0.55);
+  padding: 0.5rem 0.75rem;
+  color: rgb(255, 255, 255);
+  position: absolute;
+  left: 50%;
+  bottom: 0.75rem;
+  transform: translateX(-50%) translateY(8px);
+  background: rgba(0,0,0,0.45);
+  border-radius: 0.35rem;
+  opacity: 0;
+  transition: opacity 180ms ease, transform 180ms ease;
+  z-index: 2;
+}
+
+.gallery figure:hover figcaption {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 220ms ease, filter 220ms ease;
+  z-index: 1;
+}
+
+.gallery figure:hover img {
+  transform: scale(1.03);
+  filter: brightness(0.95) saturate(0.98);
 }
 
 .about-section {
-  background: var(--ink-black);
+  background-color: var(--c-dark);
   padding: var(--space-5) var(--space-2);
+  color: var(--paper);
 }
 
 .about-inner {
@@ -519,7 +808,7 @@ a {
   flex: none;
   width: 0.6rem;
   height: 0.6rem;
-  background: var(--fresh-sky);
+  background: var(--c-light);
   margin-top: 0.35rem;
 }
 
@@ -534,6 +823,169 @@ a {
   font-size: 0.8rem;
   padding: 0.3rem 0.75rem;
   border-radius: 999px;
-  border: 1px solid rgba(0, 166, 251, 0.4);
+  border: 1px solid rgba(133, 57, 83, 0.4);
   color: rgba(244, 250, 253, 0.85);
+}
+
+/* UnderVeil color palette overrides */
+:root {
+  --uv-purple: #2b0036;
+  --uv-red: #b71c1c;
+  --uv-black: #050205;
+}
+
+.project-hero.underveil {
+  background: linear-gradient(180deg, var(--uv-purple) 0%, var(--uv-black) 65%);
+  color: #f7eef6;
+  padding: calc(var(--space-4) + 1rem) var(--space-2) var(--space-5);
+}
+
+.project-hero.underveil .game-title {
+  color: var(--uv-red);
+  text-shadow: 0.12rem 0.12rem 0 rgba(0,0,0,0.6);
+}
+
+.project-hero.underveil .game-badge {
+  background: rgba(183,28,28,0.12);
+  color: var(--uv-red);
+  border: 1px solid rgba(183,28,28,0.18);
+}
+
+.project-hero.underveil .back-link {
+  color: rgba(244,250,253,0.85);
+}
+
+.about-section {
+  background: #070006;
+  color: rgba(244,250,253,0.92);
+}
+
+.about-section h2 {
+  color: var(--uv-red);
+}
+
+.about-section p,
+.about-section .feature-list li {
+  color: rgba(244,250,253,0.85);
+}
+
+.about-section .meta-pill {
+  border-color: rgba(183,28,28,0.3);
+  background: rgba(183,28,28,0.04);
+  color: rgba(244,250,253,0.9);
+}
+
+/* Ensure the feature-list bullets in the following about section use the UnderVeil red */
+.project-hero.underveil ~ .about-section .feature-list li::before {
+  background: var(--uv-red);
+}
+
+/* Use UnderVeil palette for its feature bullets */
+.project-hero.underveil .feature-list li::before {
+  background: var(--uv-red);
+}
+
+/* Image modal (lightbox) used by project pages */
+.image-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.55);
+  z-index: 9999;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 240ms ease;
+}
+.image-modal.visible { opacity: 1; pointer-events: auto; }
+.image-modal .modal-body {
+  max-width: 95%;
+  max-height: 95%;
+  background: #0b0b0b;
+  padding: 0.5rem;
+  border: 2px solid rgba(255,255,255,0.06);
+  box-shadow: 8px 8px 0 rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transform: scale(0.98);
+  transition: transform 240ms cubic-bezier(.2,.9,.2,1);
+  position: relative;
+}
+.image-modal.visible .modal-body { transform: scale(1); }
+.image-modal img {
+  max-width: 100%;
+  max-height: 70vh;
+  display: block;
+  margin: 0 auto;
+}
+.image-modal .caption {
+  color: #f3eef6;
+  text-align: center;
+  font-size: 0.95rem;
+}
+.image-modal .close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: var(--uv-red);
+  color: #fff;
+  border: none;
+  padding: 0.35rem 0.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+/* Window chrome for Windows 98 look */
+.win {
+  width: min(88vw, 60rem);
+  margin: 1rem auto;
+  border: 2px solid var(--win-border-dark);
+  background: var(--win-bg);
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.titlebar {
+  background: var(--win-title-bg);
+  color: var(--win-title-color);
+  padding: 0.35rem 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+}
+
+.title-controls {
+  display: inline-flex;
+  align-items: center;
+}
+
+.title-controls .btn-win {
+  margin-left: 0.35rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: var(--win-button-face);
+  border: 2px solid var(--win-border-dark);
+  box-shadow: inset 1px 1px 0 var(--win-border-light);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.title-controls .btn-win.close {
+  background: #ff6464;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.window-body {
+  padding: 1rem;
+  background: var(--win-bg);
+}
+
+.win.focused {
+  outline: 3px solid rgba(0,0,128,0.25);
 }

@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header site-header-static" aria-hidden="false">
     <div class="site-header-inner">
       <a class="logo" href="index.html" aria-label="Dantas home">SD</a>
       <nav class="site-nav">
@@ -24,79 +24,39 @@
     </div>
   </header>
 
-  <header class="project-hero">
+  <header class="site-header site-header-scrolled" aria-hidden="true">
+    <div class="site-header-inner">
+      <a class="logo" href="index.html" aria-label="Dantas home">SD</a>
+      <nav class="site-nav">
+        <a href="index.html#projects">Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <header class="project-hero underveil">
     <div class="project-hero-content">
-      <a class="back-link" href="index.html">&larr; Back to projects</a>
 
       <span class="game-badge">GAMEMAKER · 2D PIXEL ART</span>
       <h1 class="game-title">UnderVeil</h1>
       <p class="game-tagline">
-        A moody 2D pixel-art indie game about what waits on the other side of the veil.
+        A moody 2D pixel-art Roguelike indie game about a maddened King.
       </p>
     </div>
 
     <div class="gallery">
       <figure>
-        <svg viewBox="0 0 64 36" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" aria-hidden="true">
-          <rect width="64" height="36" fill="#003554" />
-          <rect x="6" y="4" width="1.5" height="1.5" fill="#00a6fb" opacity="0.9" />
-          <rect x="24" y="3" width="1.5" height="1.5" fill="#00a6fb" opacity="0.7" />
-          <rect x="58" y="6" width="1.5" height="1.5" fill="#00a6fb" opacity="0.8" />
-          <g fill="#00a6fb">
-            <rect x="44" y="4" width="8" height="2" />
-            <rect x="42" y="6" width="12" height="2" />
-            <rect x="42" y="8" width="12" height="2" />
-            <rect x="44" y="10" width="8" height="2" />
-          </g>
-          <path
-            d="M0,36 L0,26 L4,26 L4,24 L8,24 L8,22 L12,22 L12,20 L16,20 L16,22 L20,22 L20,18 L24,18 L24,16 L28,16 L28,14 L32,14 L32,16 L36,16 L36,20 L40,20 L40,24 L44,24 L44,22 L48,22 L48,20 L52,20 L52,24 L56,24 L56,26 L60,26 L60,28 L64,28 L64,36 Z"
-            fill="#006494"
-          />
-          <path
-            d="M0,36 L0,32 L8,32 L8,30 L18,30 L18,32 L30,32 L30,28 L38,28 L38,32 L50,32 L50,30 L58,30 L58,32 L64,32 L64,36 Z"
-            fill="#051923"
-          />
-          <g fill="#051923">
-            <rect x="29" y="10" width="2" height="2" />
-            <rect x="28" y="12" width="4" height="2" />
-          </g>
-        </svg>
-        <figcaption>Screenshot placeholder — overworld</figcaption>
+        <img class="clickable" src="Images/underveil_example1.png" alt="Overworld screenshot" data-full="Images/underveil_example1.png" />
+        <figcaption>Main Menu Screen</figcaption>
       </figure>
 
       <figure>
-        <svg viewBox="0 0 64 36" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" aria-hidden="true">
-          <rect width="64" height="36" fill="#051923" />
-          <rect x="12" y="6" width="1.5" height="1.5" fill="#0582ca" opacity="0.8" />
-          <rect x="50" y="4" width="1.5" height="1.5" fill="#00a6fb" opacity="0.7" />
-          <rect x="34" y="9" width="1.5" height="1.5" fill="#00a6fb" opacity="0.6" />
-          <path
-            d="M0,36 L0,20 L6,20 L6,24 L14,24 L14,18 L22,18 L22,26 L30,26 L30,16 L38,16 L38,22 L46,22 L46,20 L54,20 L54,28 L64,28 L64,36 Z"
-            fill="#003554"
-          />
-          <g fill="#00a6fb" opacity="0.85">
-            <rect x="29" y="9" width="2" height="2" />
-            <rect x="28" y="11" width="4" height="2" />
-          </g>
-        </svg>
-        <figcaption>Screenshot placeholder — ruins</figcaption>
+        <img class="clickable" src="Images/underveil_example2.png" alt="Ruins screenshot" data-full="Images/underveil_example2.png" />
+        <figcaption>Main Hub of the game</figcaption>
       </figure>
 
       <figure>
-        <svg viewBox="0 0 64 36" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" aria-hidden="true">
-          <rect width="64" height="36" fill="#006494" />
-          <rect x="20" y="5" width="1.5" height="1.5" fill="#f4fafd" opacity="0.9" />
-          <rect x="44" y="8" width="1.5" height="1.5" fill="#f4fafd" opacity="0.7" />
-          <path
-            d="M0,36 L0,24 L10,24 L10,28 L20,28 L20,20 L32,20 L32,26 L42,26 L42,18 L54,18 L54,24 L64,24 L64,36 Z"
-            fill="#003554"
-          />
-          <path
-            d="M0,36 L0,30 L16,30 L16,32 L34,32 L34,28 L48,28 L48,32 L64,32 L64,36 Z"
-            fill="#051923"
-          />
-        </svg>
-        <figcaption>Screenshot placeholder — the veil</figcaption>
+        <img class="clickable" src="Images/underveil_example3.png" alt="The Veil screenshot" data-full="Images/underveil_example3.png" />
+        <figcaption>Dungeon Room</figcaption>
       </figure>
     </div>
   </header>
@@ -105,22 +65,37 @@
     <div class="about-inner">
       <div class="meta-row">
         <span class="meta-pill">Engine: GameMaker</span>
-        <span class="meta-pill">Genre: 2D Pixel-Art</span>
+        <span class="meta-pill">Genre: Roguelike</span>
         <span class="meta-pill">Status: In development</span>
       </div>
 
       <h2>About the game</h2>
       <p>
-        UnderVeil is a 2D pixel-art game built in GameMaker. This is a quick
-        placeholder page — swap in real screenshots, a trailer, and a proper
-        write-up once there's more to show.
+        UnderVeil is a 2D pixel-art Roguelike indie game that takes place in a world where all hope is lost. The player must navigate through a series of procedurally generated dungeons,
+        battling enemies and getting stronger, all while uncovering the story of a maddened King about to wake up from his long slumber.
+        The game features over 30 unique weapons, 50+ blessings to aid the player, and a variety of enemies and bosses to defeat.
       </p>
 
-      <h2>Planned features</h2>
+      <h2>Main Features</h2>
       <ul class="feature-list">
-        <li>Hand-placed pixel-art levels with a hand-tuned color palette</li>
+        <li>Fluid melee combat with various move sets</li>
         <li>Exploration-driven progression across connected areas</li>
-        <li>Original chiptune-inspired soundtrack</li>
+        <li>Near endless build variety due to massive pool of Blessings, Skills and other features </li>
+      </ul>
+
+      <h2>How the game came to exist</h2>
+      <p>
+        As someone who always loved games, ever since i was a little kid i've been playing them so creating one was always on my mind. UnderVeil is that idea coming into fruition.
+        From What started as a school project, has now become a full fledged game, with a story and a world to explore. The game is still in development, but I hope to release a 
+        demo on Steam in the near future.
+      </p>
+
+      <h2>Tools used</h2>
+      <ul class="feature-list">
+        <li>GameMaker</li>
+        <li>Itch.io</li>
+        <li>FreeSound.org</li>
+        <li>Aseprite</li>
       </ul>
 
       <a class="back-link" href="index.html">&larr; Back to projects</a>
@@ -130,5 +105,56 @@
   <footer class="site-footer">
     <p>&copy; 2026 Dantas.</p>
   </footer>
+
+  <!-- Image modal (lightbox) -->
+  <div id="image-modal" class="image-modal" role="dialog" aria-hidden="true">
+    <button class="close-btn" aria-label="Close image">✕</button>
+    <div class="modal-body">
+      <img src="" alt="" />
+      <div class="caption"></div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const modal = document.getElementById('image-modal');
+      const modalImg = modal.querySelector('img');
+      const caption = modal.querySelector('.caption');
+      const closeBtn = modal.querySelector('.close-btn');
+
+      function openImage(src, alt, captionText) {
+        modalImg.src = src;
+        modalImg.alt = alt || '';
+        caption.textContent = captionText || '';
+        modal.setAttribute('aria-hidden', 'false');
+        modal.classList.add('visible');
+      }
+
+      function closeImage() {
+        modal.classList.remove('visible');
+        modal.setAttribute('aria-hidden', 'true');
+        // clear src after transition to release memory
+        setTimeout(()=> modalImg.src = '', 240);
+      }
+
+      document.addEventListener('click', function(e){
+        const t = e.target;
+        if (t.matches('.gallery img.clickable')) {
+          const src = t.dataset.full || t.src;
+          const alt = t.alt || '';
+          const fig = t.closest('figure');
+          const cap = fig ? (fig.querySelector('figcaption')?.textContent || '') : '';
+          openImage(src, alt, cap);
+        }
+        if (t === modal || t === closeBtn) {
+          closeImage();
+        }
+      }, false);
+
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape' && modal.classList.contains('visible')) closeImage();
+      });
+    })();
+  </script>
 </body>
 </html>
