@@ -21,12 +21,21 @@
   --max-width: 100rem;
   --header-height: 6rem;
 
+<<<<<<< HEAD
   /* 90s web palette: electric teal, arcade purple, warm cream, deep navy */
   --c-dark: #101a3a;
   --c-red: #ff5c8a;
   --c-purple: #6c3cff;
   --c-light: #fff4d6;
   --c-teal: #13c8b0;
+=======
+  /* New site palette (index) */
+  --c-dark: #2C2C2C;
+  /* dark gray */
+  --c-red: #853953;
+  --c-purple: #612D53;
+  --c-light: #F3F4F4;
+>>>>>>> 02c95c1fbc2717a94c511cb253373c435ca2501f
 
   --paper: var(--c-light);
   --ink-black: var(--c-dark);
@@ -142,7 +151,11 @@ a {
   left: 0;
   right: 0;
   z-index: 1000;
+<<<<<<< HEAD
   background: rgba(16, 26, 58, 0.78);
+=======
+  background: rgba(192, 192, 192, 0.5);
+>>>>>>> 02c95c1fbc2717a94c511cb253373c435ca2501f
   /* ~50% opacity */
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
@@ -328,7 +341,11 @@ a {
 .social-button:hover,
 .social-button:focus-visible {
   transform: translateY(-1px);
+<<<<<<< HEAD
   background: var(--c-light);
+=======
+  background: #f6f6f6;
+>>>>>>> 02c95c1fbc2717a94c511cb253373c435ca2501f
 }
 
 .avatar {
