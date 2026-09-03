@@ -1125,6 +1125,27 @@ a {
   background: var(--win-bg);
 }
 
+.index-page .window-body {
+  color: var(--space-indigo);
+}
+
+.index-page .name,
+.index-page .tagline {
+  color: var(--space-indigo);
+}
+
+.index-page .scroll-cue {
+  border-color: var(--space-indigo);
+}
+
+.index-page .project-title {
+  color: var(--space-indigo);
+}
+
+.index-page .project-summary {
+  color: var(--dusty-grape);
+}
+
 .win.focused {
   outline: 3px solid rgba(0, 0, 128, 0.25);
 }
