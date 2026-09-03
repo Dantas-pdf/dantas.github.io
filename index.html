@@ -12,6 +12,7 @@
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet"
   />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -48,14 +49,27 @@
         </div>
         <div class="window-body">
           <div class="hero-inner">
-      <div class="avatar">
-        <img src="Images\Beauty.png" alt="Simão Dantas" />
-      </div>
+            <div class="hero-copy">
+              <div class="avatar">
+                <img src="Images\Beauty.png" alt="Simão Dantas" />
+              </div>
 
-      <h1 class="name">Simão Dantas</h1>
-      <p class="tagline">Hi, I'm a Junior Developer looking to improve my skills! </p>
-      <br />
-      <p class="tagline"> Here you'll learn more about me and my projects </p>
+              <h1 class="name">Simão Dantas</h1>
+              <p class="tagline">Hi, I'm a Junior Developer looking to improve my skills! </p>
+              <br />
+              <p class="tagline"> Here you'll learn more about me and my projects </p>
+            </div>
+
+            <div class="hero-socials" aria-label="Social links">
+              <a class="social-button github" href="https://github.com/Dantas-pdf" target="_blank" rel="noopener noreferrer" aria-label="Visit Simão Dantas on GitHub">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+                <span>GitHub</span>
+              </a>
+              <a class="social-button linkedin" href="https://www.linkedin.com/in/sim%C3%A3o-dantas-2853b4206/" target="_blank" rel="noopener noreferrer" aria-label="Visit Simão Dantas on LinkedIn">
+                <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                <span>LinkedIn</span>
+              </a>
+            </div>
 
             <a class="scroll-cue" href="#projects" aria-label="Scroll to projects"></a>
           </div>
@@ -88,27 +102,6 @@
               <h3 class="project-title">UnderVeil</h3>
               <p class="project-summary">A 2D pixel-art indie RogueLike, being developed in GameMaker.</p>
               <a class="btn btn-outline" href="UnderVeil.html">Open</a>
-            </div>
-          </div>
-        </div>
-        <!-- Calorie Tracker project window -->
-        <div class="win project-win square" id="win-calorie" role="dialog" aria-label="Calorie Tracker window">
-          <div class="titlebar">
-            <div class="title">Calorie Tracker</div>
-            <div class="title-controls">
-              <button class="btn-win">_</button>
-              <button class="btn-win">◻</button>
-              <button class="btn-win close">X</button>
-            </div>
-          </div>
-          <div class="window-body">
-            <div class="video-player">
-              <img src="Images/CaloriePlaceholder.png" alt="Calorie Tracker" />
-            </div>
-            <div class="video-meta">
-              <h3 class="project-title">Calorie Tracker</h3>
-              <p class="project-summary">Track daily calories, set weight goals, scan barcodes, and build a food database.</p>
-              <a class="btn btn-outline" href="CalorieTracker.html">Open</a>
             </div>
           </div>
         </div>
