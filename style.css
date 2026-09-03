@@ -32,6 +32,29 @@
   --ink-black: var(--c-dark);
 }
 
+/* Index palette */
+.index-page {
+  --space-indigo: #22223bff;
+  --dusty-grape: #4a4e69ff;
+  --lilac-ash: #9a8c98ff;
+  --almond-silk: #c9ada7ff;
+  --parchment: #f2e9e4ff;
+
+  --c-dark: var(--space-indigo);
+  --c-red: var(--dusty-grape);
+  --c-purple: var(--lilac-ash);
+  --c-light: var(--parchment);
+  --paper: var(--parchment);
+  --ink-black: var(--space-indigo);
+  --ink-black-70: rgba(34, 34, 59, 0.7);
+
+  --win-bg: var(--parchment);
+  --win-border-light: var(--almond-silk);
+  --win-border-dark: var(--space-indigo);
+  --win-title-bg: var(--space-indigo);
+  --win-button-face: var(--almond-silk);
+}
+
 /* Windows 98 UI tokens */
 :root {
   --win-bg: #c0c0c0;
@@ -410,6 +433,37 @@ a {
   padding: var(--space-5) var(--space-2) var(--space-5);
   scroll-margin-top: var(--header-height);
   color: var(--paper);
+}
+
+.index-about {
+  background: var(--dusty-grape);
+  color: var(--parchment);
+  padding: var(--space-5) var(--space-2);
+}
+
+.index-about-inner {
+  max-width: 48rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.index-about .section-heading {
+  margin-bottom: var(--space-2);
+}
+
+.index-about p:not(.eyebrow) {
+  max-width: 40rem;
+  margin: 0 auto var(--space-2);
+  color: var(--parchment);
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-1);
+  color: var(--almond-silk);
+  font-family: var(--font-pixel);
+  font-size: 0.55rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .section-heading {
