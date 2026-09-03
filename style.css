@@ -475,8 +475,8 @@ a {
    Small Windows-98 tiles for each skill (smaller, non-interactive)
    ======================================================================== */
 .skills {
-  background-color: var(--c-dark);
-  color: var(--paper);
+  background-color: #ffffff;
+  color: var(--c-dark);
   padding: var(--space-5) var(--space-2);
 }
 
@@ -705,11 +705,11 @@ a {
    FOOTER
    ======================================================================== */
 .site-footer {
-  background-color: var(--win-bg);
+  background-color: #343434;
   text-align: center;
   padding: var(--space-3) var(--space-2);
   font-size: 0.85rem;
-  color: var(--c-lightk);
+  color: #ffffff;
 }
 
 /* ========================================================================
