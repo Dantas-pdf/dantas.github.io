@@ -272,13 +272,53 @@ a {
 
 .hero-inner {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-2);
+  align-items: center;
+  gap: clamp(2rem, 7vw, 6rem);
   max-width: calc(var(--max-width) - 2rem);
   margin: 0 auto;
   padding: 1rem;
   font-family: Tahoma, Arial, sans-serif;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.hero-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.social-button {
+  min-width: 8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.7rem 0.9rem;
+  border: 2px solid var(--win-border-dark);
+  background: var(--win-button-face);
+  color: var(--c-dark);
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: inset 1px 1px 0 var(--win-border-light), 1px 1px 0 var(--win-border-dark);
+  transition: transform 0.12s ease, background-color 0.12s ease;
+}
+
+.social-button i {
+  font-size: 1.25rem;
+}
+
+.social-button:hover,
+.social-button:focus-visible {
+  transform: translateY(-1px);
+  background: #f6f6f6;
 }
 
 .avatar {
@@ -988,4 +1028,23 @@ a {
 
 .win.focused {
   outline: 3px solid rgba(0,0,128,0.25);
+}
+
+@media (max-width: 680px) {
+  .hero-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+
+  .hero-copy {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-socials {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
