@@ -138,3 +138,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // initialize
   updateHeader();
 })();
+
+;(function () {
+  const footer = document.querySelector('.index-page .site-footer');
+  if (!footer) return;
+
+  function updateFooter() {
+    const distanceFromBottom = document.documentElement.scrollHeight - (window.scrollY + window.innerHeight);
+    footer.classList.toggle('footer-visible', distanceFromBottom <= 96);
+  }
+
+  window.addEventListener('scroll', () => {
+    window.requestAnimationFrame(updateFooter);
+  }, { passive: true });
+  window.addEventListener('resize', updateFooter);
+
+  updateFooter();
+})();
