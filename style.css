@@ -21,12 +21,12 @@
   --max-width: 100rem;
   --header-height: 6rem;
 
-  /* New site palette (index) */
-  --c-dark: #2C2C2C;
-  /* dark gray */
-  --c-red: #853953;
-  --c-purple: #612D53;
-  --c-light: #F3F4F4;
+  /* 90s web palette: electric teal, arcade purple, warm cream, deep navy */
+  --c-dark: #101a3a;
+  --c-red: #ff5c8a;
+  --c-purple: #6c3cff;
+  --c-light: #fff4d6;
+  --c-teal: #13c8b0;
 
   --paper: var(--c-light);
   --ink-black: var(--c-dark);
@@ -142,7 +142,7 @@ a {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(192, 192, 192, 0.5);
+  background: rgba(16, 26, 58, 0.78);
   /* ~50% opacity */
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
@@ -245,7 +245,7 @@ a {
 .btn-outline:hover,
 .btn-outline:focus-visible {
   transform: translateY(-1px);
-  background: #f6f6f6;
+  background: var(--c-light);
 }
 
 .footer-actions {
@@ -328,7 +328,7 @@ a {
 .social-button:hover,
 .social-button:focus-visible {
   transform: translateY(-1px);
-  background: #f6f6f6;
+  background: var(--c-light);
 }
 
 .avatar {
@@ -709,7 +709,7 @@ a {
   text-align: center;
   padding: var(--space-3) var(--space-2);
   font-size: 0.85rem;
-  color: var(--c-lightk);
+  color: var(--c-dark);
 }
 
 /* ========================================================================
@@ -796,7 +796,7 @@ a {
   border-radius: 0.5rem;
   overflow: hidden;
   border: 1px solid rgba(72, 11, 11, 0.25);
-  background: #b31515;
+  background: var(--uv-purple);
   position: relative;
 }
 
@@ -903,9 +903,9 @@ a {
 
 /* UnderVeil color palette overrides */
 :root {
-  --uv-purple: #2b0036;
-  --uv-red: #b71c1c;
-  --uv-black: #050205;
+  --uv-purple: #241052;
+  --uv-red: var(--c-teal);
+  --uv-black: #101a3a;
 }
 
 .project-hero.underveil {
