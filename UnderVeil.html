@@ -12,9 +12,10 @@
     href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet"
   />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="underveil-page">
   <header class="site-header site-header-static" aria-hidden="false">
     <div class="site-header-inner">
       <a class="logo" href="index.html" aria-label="Dantas home">SD</a>
@@ -74,11 +75,23 @@
         The game features over 30 unique weapons, 50+ blessings to aid the player, and a variety of enemies and bosses to defeat.
       </p>
 
+      <h2>Gameplay Loop</h2>
+      <p>
+        You begin your journey weak and vulnerable, but every run gives you a chance to grow stronger. As you progress, you unlock new weapons and earn the help of different gods from multiple mythologies, allowing you to shape your own build and face increasingly dangerous challenges.
+      </p>
+
+      <figure class="omens-showcase">
+        <img class="clickable" src="Images/UnderVeil/Omens.png" alt="Examples of Omens available during a run" data-full="Images/UnderVeil/Omens.png" />
+        <figcaption>Examples of Omens that can strengthen the hero during a run.</figcaption>
+      </figure>
+
       <h2>Main Features</h2>
       <ul class="feature-list">
         <li>Fluid melee combat with various move sets</li>
         <li>Exploration-driven progression across connected areas</li>
         <li>Near endless build variety due to massive pool of Blessings, Skills and other features </li>
+        <li>A Hub area where you can permanently upgrade your hero and uncover more of the story</li>
+        <li>Multiple mythologies, each with a unique role in how they aid the player</li>
       </ul>
 
       <h2>How the game came to exist</h2>
@@ -89,19 +102,47 @@
       </p>
 
       <h2>Tools used</h2>
-      <ul class="feature-list">
-        <li>GameMaker</li>
-        <li>Itch.io</li>
-        <li>FreeSound.org</li>
-        <li>Aseprite</li>
+      <ul class="tools-grid">
+        <li class="tool-card">
+          <img src="https://cdn.simpleicons.org/gamemaker/ffffff" alt="" aria-hidden="true" />
+          <a href="https://gamemaker.io/" target="_blank" rel="noopener">GameMaker</a>
+        </li>
+        <li class="tool-card">
+          <img src="https://cdn.simpleicons.org/itchdotio/ffffff" alt="" aria-hidden="true" />
+          <a href="https://itch.io/" target="_blank" rel="noopener">Itch.io</a>
+        </li>
+        <li class="tool-card">
+          <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+          <a href="https://freesound.org/" target="_blank" rel="noopener">FreeSound.org</a>
+        </li>
+        <li class="tool-card">
+          <img src="https://cdn.simpleicons.org/aseprite/ffffff" alt="" aria-hidden="true" />
+          <a href="https://www.aseprite.org/" target="_blank" rel="noopener">Aseprite</a>
+        </li>
       </ul>
+
+      <section class="fun-facts" aria-labelledby="fun-facts-heading">
+        <h2 id="fun-facts-heading">Fun Facts</h2>
+        <div class="budget-fact">
+          <span>Budget used</span>
+          <strong>0€</strong>
+        </div>
+        <ul class="fun-facts-list">
+          <li>Every asset used in UnderVeil is either freely available through the tools above or an original creation made by me. (You can tell which were made by me)</li>
+          <li>The game is inspired by one of my friends, who is also the inspiration for its main character.</li>
+          <li>UnderVeil started as a school project, but as I became more invested in it, I decided to turn it into a full game intended for release.</li>
+        </ul>
+      </section>
 
       <a class="back-link" href="index.html">&larr; Back to projects</a>
     </div>
   </section>
 
-  <footer class="site-footer">
-    <p>&copy; 2026 Dantas.</p>
+  <footer class="site-footer" aria-label="Social links">
+    <div class="footer-actions">
+      <a class="btn btn-outline" href="https://www.linkedin.com/in/sim%C3%A3o-dantas-2853b4206/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-outline" href="https://github.com/Dantas-pdf" target="_blank" rel="noopener">GitHub</a>
+    </div>
   </footer>
 
   <!-- Image modal (lightbox) -->
@@ -138,7 +179,7 @@
 
       document.addEventListener('click', function(e){
         const t = e.target;
-        if (t.matches('.gallery img.clickable')) {
+        if (t.matches('.gallery img.clickable, .omens-showcase img.clickable')) {
           const src = t.dataset.full || t.src;
           const alt = t.alt || '';
           const fig = t.closest('figure');

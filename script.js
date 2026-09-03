@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 
 ;(function () {
-  const footer = document.querySelector('.index-page .site-footer');
+  const footer = document.querySelector('.index-page .site-footer, .underveil-page .site-footer');
   if (!footer) return;
 
   function updateFooter() {
