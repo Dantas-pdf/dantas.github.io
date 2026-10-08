@@ -540,10 +540,10 @@ a {
   display: flex;
   flex: 1;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   gap: 0.75rem;
   padding-top: 0.25rem;
-  text-align: center;
+  text-align: left;
 }
 
 .project-win .video-meta .project-title {
@@ -551,6 +551,10 @@ a {
 }
 
 .project-win .video-meta .btn {
+  margin-top: auto;
+}
+
+.project-win .video-meta .project-actions {
   margin-top: auto;
 }
 
@@ -1579,7 +1583,7 @@ a {
 
 .index-page .skills-list {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: clamp(0.4rem, 1.5vw, 1rem);
   width: min(100%, 40rem);
   max-width: none;
@@ -1591,17 +1595,50 @@ a {
 .index-page .skill-win {
   width: 100%;
   height: auto;
-  aspect-ratio: 1;
+  aspect-ratio: 1.5;
   min-width: 0;
   margin: 0;
   padding: 0;
   flex: initial;
 }
 
+.index-page #skill-typescript { order: 1; }
+.index-page #skill-react { order: 2; }
+.index-page #skill-nextjs { order: 3; }
+.index-page #skill-js { order: 4; }
+.index-page #skill-postgresql { order: 5; }
+.index-page #skill-supabase { order: 6; }
+.index-page #skill-sql-rls { order: 7; }
+.index-page #skill-sql { order: 8; }
+.index-page #skill-api { order: 9; }
+.index-page #skill-steam-api { order: 10; }
+.index-page #skill-html { order: 11; }
+.index-page #skill-css { order: 12; }
+.index-page #skill-vercel { order: 13; }
+.index-page #skill-recharts { order: 14; }
+.index-page #skill-gamemaker { order: 15; }
+.index-page #skill-gml { order: 16; }
+
 .index-page .skill-win img {
-  width: clamp(2rem, 8vh, 4.6rem);
-  height: clamp(2rem, 8vh, 4.6rem);
-  margin: 0.2rem auto;
+  width: clamp(1.5rem, 4vw, 2.4rem);
+  height: clamp(1.5rem, 4vw, 2.4rem);
+  margin: 0.1rem auto;
+}
+
+.index-page .skill-mark {
+  display: grid;
+  place-items: center;
+  width: clamp(1.5rem, 4vw, 2.4rem);
+  height: clamp(1.5rem, 4vw, 2.4rem);
+  margin: 0.1rem auto;
+  border: 2px solid currentColor;
+  border-radius: 0.6rem;
+  color: var(--c-dark);
+  font-family: var(--font-display);
+  font-size: clamp(0.7rem, 1.7vw, 1rem);
+  font-weight: 700;
+  line-height: 1;
+  flex: 0 0 auto;
 }
 
 .index-page .skill-win .window-body {
@@ -1730,6 +1767,23 @@ a {
   .index-page .home-window,
   .index-page .section-window {
     width: calc(100vw - 1rem);
+  }
+
+  .index-page .skills-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .index-page .skill-win {
+    aspect-ratio: 1;
+  }
+
+  .index-page .skill-win .title {
+    font-size: clamp(0.46rem, 2.1vw, 0.6rem);
+  }
+
+  .index-page .skill-name {
+    font-size: clamp(0.48rem, 2.4vw, 0.62rem);
   }
 
   .index-page .project-win .video-meta {
