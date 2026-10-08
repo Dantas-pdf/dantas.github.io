@@ -16,39 +16,28 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="index-page">
-  <a class="skip-link" href="#about">Skip to content</a>
+  <a class="skip-link" href="#main-views" data-view-target="home">Skip to content</a>
 
   <header class="site-header site-header-static" aria-hidden="false">
     <div class="site-header-inner">
-      <a class="logo" href="index.html" aria-label="Dantas home">SD</a>
+      <a class="logo" href="#home" data-view-target="home" aria-label="Dantas home">SD</a>
       <nav class="site-nav">
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#about">About Me</a>
+        <button type="button" data-view-target="skills" aria-pressed="false">Skills</button>
+        <button type="button" data-view-target="projects" aria-pressed="false">Projects</button>
+        <button type="button" data-view-target="about" aria-pressed="false">About Me</button>
       </nav>
     </div>
   </header>
 
-  <header class="site-header site-header-scrolled" aria-hidden="true">
-    <div class="site-header-inner">
-      <a class="logo" href="index.html" aria-label="Dantas home">SD</a>
-      <nav class="site-nav">
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#about">About Me</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="desktop">
-      <div class="win" id="win-about" role="dialog" aria-label="About window">
+  <main class="desktop-stage" id="main-views">
+    <section class="app-view hero is-active" id="home" data-view="home" aria-labelledby="home-title">
+      <article class="win home-window">
         <div class="titlebar">
-          <div class="title">About — Dantas</div>
-          <div class="title-controls">
-            <button class="btn-win">_</button>
-            <button class="btn-win">◻</button>
-            <button class="btn-win close">X</button>
+          <div class="title" id="home-title">About — Dantas</div>
+          <div class="title-controls" aria-hidden="true">
+            <span class="btn-win">_</span>
+            <span class="btn-win">◻</span>
+            <span class="btn-win close">X</span>
           </div>
         </div>
         <div class="window-body">
@@ -64,33 +53,38 @@
               <p class="tagline"> Here you'll learn more about me and my projects </p>
             </div>
 
-            <div class="hero-socials" aria-label="Social links">
-              <a class="social-button github" href="https://github.com/Dantas-pdf" target="_blank" rel="noopener noreferrer" aria-label="Visit Simão Dantas on GitHub">
-                <i class="fa-brands fa-github" aria-hidden="true"></i>
-                <span>GitHub</span>
-              </a>
-              <a class="social-button linkedin" href="https://www.linkedin.com/in/sim%C3%A3o-dantas-2853b4206/" target="_blank" rel="noopener noreferrer" aria-label="Visit Simão Dantas on LinkedIn">
-                <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
-                <span>LinkedIn</span>
-              </a>
+            <div class="hero-socials" aria-label="Explore this site">
+              <button class="social-button" type="button" data-view-target="projects">
+                <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+                <span>Projects</span>
+              </button>
+              <button class="social-button" type="button" data-view-target="skills">
+                <i class="fa-solid fa-code" aria-hidden="true"></i>
+                <span>Skills</span>
+              </button>
             </div>
-
-            <a class="scroll-cue" href="#projects" aria-label="Scroll to projects"></a>
           </div>
         </div>
-      </div>
+      </article>
+    </section>
+
+    <section id="skills" class="app-view skills" data-view="skills" aria-labelledby="skills-heading" aria-hidden="true" inert>
+      <article class="win section-window skills-window">
+        <div class="titlebar">
+          <div class="title" id="skills-heading">Hard Skills</div>
+          <div class="title-controls" aria-hidden="true">
+            <span class="btn-win">_</span>
+            <span class="btn-win">◻</span>
+            <span class="btn-win close">X</span>
+          </div>
         </div>
-        </section>
 
-  <main>
-    <section id="skills" class="skills">
-      <h2 class="section-heading">Hard Skills</h2>
-
-      <div class="skills-list">
+        <div class="window-body">
+          <div class="skills-list">
         <div class="win skill-win" id="skill-html" role="img" aria-label="HTML skill">
           <div class="titlebar">
             <div class="title">HTML</div>
-            <div class="title-controls"><button class="btn-win">_</button><button class="btn-win">◻</button><button class="btn-win close">X</button></div>
+            <div class="title-controls" aria-hidden="true"><span class="btn-win">_</span><span class="btn-win">◻</span><span class="btn-win close">X</span></div>
           </div>
           <div class="window-body">
             <img src="Images/Logos/HTML5_logo.png" alt="HTML" />
@@ -101,7 +95,7 @@
         <div class="win skill-win" id="skill-css" role="img" aria-label="CSS skill">
           <div class="titlebar">
             <div class="title">CSS</div>
-            <div class="title-controls"><button class="btn-win">_</button><button class="btn-win">◻</button><button class="btn-win close">X</button></div>
+            <div class="title-controls" aria-hidden="true"><span class="btn-win">_</span><span class="btn-win">◻</span><span class="btn-win close">X</span></div>
           </div>
           <div class="window-body">
             <img src="Images/Logos/CSS3_logo.png" alt="CSS" />
@@ -112,7 +106,7 @@
         <div class="win skill-win" id="skill-js" role="img" aria-label="JavaScript skill">
           <div class="titlebar">
             <div class="title">JavaScript</div>
-            <div class="title-controls"><button class="btn-win">_</button><button class="btn-win">◻</button><button class="btn-win close">X</button></div>
+            <div class="title-controls" aria-hidden="true"><span class="btn-win">_</span><span class="btn-win">◻</span><span class="btn-win close">X</span></div>
           </div>
           <div class="window-body">
             <img src="Images/Logos/Javascript_logo.png" alt="JavaScript" />
@@ -123,7 +117,7 @@
         <div class="win skill-win" id="skill-sql" role="img" aria-label="MySQL skill">
           <div class="titlebar">
             <div class="title">MySQL</div>
-            <div class="title-controls"><button class="btn-win">_</button><button class="btn-win">◻</button><button class="btn-win close">X</button></div>
+            <div class="title-controls" aria-hidden="true"><span class="btn-win">_</span><span class="btn-win">◻</span><span class="btn-win close">X</span></div>
           </div>
           <div class="window-body">
             <img src="Images/Logos/MySQL_logo.png" alt="MySQL" />
@@ -134,7 +128,7 @@
         <div class="win skill-win" id="skill-vercel" role="img" aria-label="Vercel skill">
           <div class="titlebar">
             <div class="title">Vercel</div>
-            <div class="title-controls"><button class="btn-win">_</button><button class="btn-win">◻</button><button class="btn-win close">X</button></div>
+            <div class="title-controls" aria-hidden="true"><span class="btn-win">_</span><span class="btn-win">◻</span><span class="btn-win close">X</span></div>
           </div>
           <div class="window-body">
             <img src="Images/Logos/vercel.logo.svg" alt="Vercel" />
@@ -145,28 +139,38 @@
         <div class="win skill-win" id="skill-supabase" role="img" aria-label="Supabase skill">
           <div class="titlebar">
             <div class="title">Supabase</div>
-            <div class="title-controls"><button class="btn-win">_</button><button class="btn-win">◻</button><button class="btn-win close">X</button></div>
+            <div class="title-controls" aria-hidden="true"><span class="btn-win">_</span><span class="btn-win">◻</span><span class="btn-win close">X</span></div>
           </div>
           <div class="window-body">
             <img src="Images/Logos/supabase_logo.png" alt="Supabase" />
             <div class="skill-name">Supabase</div>
           </div>
         </div>
-      </div>
+          </div>
+        </div>
+      </article>
     </section>
 
-    <section id="projects" class="projects">
-      <h2 class="section-heading">Personal Projects</h2>
-
-      <div class="projects-list">
+    <section id="projects" class="app-view projects" data-view="projects" aria-labelledby="projects-heading" aria-hidden="true" inert>
+      <article class="win section-window projects-window">
+        <div class="titlebar">
+          <div class="title" id="projects-heading">Personal Projects</div>
+          <div class="title-controls" aria-hidden="true">
+            <span class="btn-win">_</span>
+            <span class="btn-win">◻</span>
+            <span class="btn-win close">X</span>
+          </div>
+        </div>
+        <div class="window-body">
+          <div class="projects-list">
         <!-- UnderVeil project window (styled like an old video player) -->
-        <div class="win project-win square" id="win-underveil" role="dialog" aria-label="UnderVeil window">
+        <article class="win project-win" id="win-underveil">
           <div class="titlebar">
             <div class="title">UnderVeil</div>
             <div class="title-controls">
-              <button class="btn-win">_</button>
-              <button class="btn-win">◻</button>
-              <button class="btn-win close">X</button>
+              <span class="btn-win" aria-hidden="true">_</span>
+              <span class="btn-win" aria-hidden="true">◻</span>
+              <span class="btn-win close" aria-hidden="true">X</span>
             </div>
           </div>
           <div class="window-body">
@@ -180,27 +184,83 @@
               <a class="btn btn-outline" href="UnderVeil.html">Open</a>
             </div>
           </div>
+        </article>
+
+        <article class="win project-win" id="win-framervault">
+          <div class="titlebar">
+            <div class="title">FramerVault</div>
+            <div class="title-controls" aria-hidden="true">
+              <span class="btn-win">_</span>
+              <span class="btn-win">◻</span>
+              <span class="btn-win close">X</span>
+            </div>
+          </div>
+          <div class="window-body">
+            <h3 class="project-title">FramerVault</h3>
+            <p class="project-summary">A full-stack game library and journal to organize your games, track playtime and ratings, sync Steam, discover games, and share your library with friends.</p>
+            <div class="project-actions">
+              <a class="btn btn-outline" href="https://framervault.vercel.app/" target="_blank" rel="noopener noreferrer">Visit project site <span aria-hidden="true">↗</span></a>
+              <button class="btn btn-outline" type="button" data-open-dialog="framervault-details">More details</button>
+            </div>
+          </div>
+        </article>
+          </div>
         </div>
-      </div>
+      </article>
     </section>
 
-    <section id="about" class="index-about" aria-labelledby="about-heading">
-      <div class="index-about-inner">
-        <p class="eyebrow">A little context</p>
-        <h2 id="about-heading" class="section-heading">About Me</h2>
-        <p>When I am not learning about development, you will probably find me watching or playing basketball, listening to music, or getting lost in a video game. I like the energy of rock, the creativity of jazz, and the honesty and rhythm of hip-hop.</p>
-        <p>Those interests are a big part of who I am. Basketball keeps me competitive, music is always somewhere in the background, and video games remind me why I enjoy building things that people can interact with and make their own.</p>
-      </div>
+    <section id="about" class="app-view index-about" data-view="about" aria-labelledby="about-heading" aria-hidden="true" inert>
+      <article class="win section-window about-window">
+        <div class="titlebar">
+          <div class="title" id="about-heading">About Me</div>
+          <div class="title-controls" aria-hidden="true">
+            <span class="btn-win">_</span>
+            <span class="btn-win">◻</span>
+            <span class="btn-win close">X</span>
+          </div>
+        </div>
+        <div class="window-body index-about-inner">
+          <p>When I am not learning about development, you will probably find me watching or playing basketball, listening to music, or getting lost in a video game. I like the energy of rock, the creativity of jazz, and the honesty and rhythm of hip-hop.</p>
+          <p>Those interests are a big part of who I am. Basketball keeps me competitive, music is always somewhere in the background, and video games remind me why I enjoy building things that people can interact with and make their own.</p>
+        </div>
+      </article>
     </section>
-
   </main>
 
-  <footer class="site-footer" aria-label="Social links">
+  <footer class="site-footer footer-visible" aria-label="Social links">
     <div class="footer-actions">
-      <a class="btn btn-outline" href="https://www.linkedin.com/in/sim%C3%A3o-dantas-2853b4206/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn btn-outline" href="https://github.com/Dantas-pdf" target="_blank" rel="noopener">GitHub</a>
+      <a class="social-button linkedin" href="https://www.linkedin.com/in/sim%C3%A3o-dantas-2853b4206/" target="_blank" rel="noopener noreferrer" aria-label="Visit Simão Dantas on LinkedIn">
+        <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+        <span>LinkedIn</span>
+      </a>
+      <a class="social-button github" href="https://github.com/Dantas-pdf" target="_blank" rel="noopener noreferrer" aria-label="Visit Simão Dantas on GitHub">
+        <i class="fa-brands fa-github" aria-hidden="true"></i>
+        <span>GitHub</span>
+      </a>
     </div>
   </footer>
+
+  <dialog class="project-dialog" id="framervault-details" aria-labelledby="framervault-details-title">
+    <div class="titlebar">
+      <div class="title" id="framervault-details-title">FramerVault — Project Details</div>
+      <button class="btn-win close" type="button" data-close-dialog aria-label="Close project details">X</button>
+    </div>
+    <div class="project-dialog-body">
+      <p>FramerVault is a full-stack game library and journal built to help players organize their games, track playtime and ratings, sync their Steam library, explore recommendations and sales, and share libraries with friends.</p>
+      <h2>Technologies and integrations</h2>
+      <ul class="project-detail-list">
+        <li><strong>TypeScript:</strong> application and API code.</li>
+        <li><strong>React 19 and Next.js 16:</strong> interactive UI and App Router.</li>
+        <li><strong>Supabase:</strong> authentication and PostgreSQL database, with custom SQL functions and row-level security.</li>
+        <li><strong>CSS:</strong> custom styling and responsive layouts.</li>
+        <li><strong>Recharts:</strong> playtime and activity charts.</li>
+        <li><strong>Steam APIs and OpenID:</strong> account linking, library import and sync, and deal data.</li>
+        <li><strong>RAWG API:</strong> game catalog.</li>
+      </ul>
+      <a class="btn btn-outline" href="https://framervault.vercel.app/" target="_blank" rel="noopener noreferrer">Visit project site <span aria-hidden="true">↗</span></a>
+    </div>
+  </dialog>
+
   <script src="script.js"></script>
 </body>
 </html>

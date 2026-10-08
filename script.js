@@ -90,7 +90,8 @@ if (body) {
 
   wins.forEach((win) => {
     // bring to front on mousedown (focus-only)
-    win.addEventListener('mousedown', () => {
+    win.addEventListener('mousedown', (event) => {
+      if (event.target.closest('.win') !== win) return;
       wins.forEach(w => w.classList.remove('focused'));
       win.classList.add('focused');
       topZ++;
@@ -101,12 +102,125 @@ if (body) {
   });
 })();
 
+// Switch between fixed index-page views without scrolling.
+;(function () {
+  const stage = document.querySelector('.index-page .desktop-stage');
+  if (!stage) return;
+
+  const views = Array.from(stage.querySelectorAll('.app-view'));
+  const navButtons = Array.from(document.querySelectorAll('.site-nav [data-view-target]'));
+  const viewLinks = Array.from(document.querySelectorAll('[data-view-target]'));
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let activeView = views.find((view) => view.classList.contains('is-active'));
+  let transitionId = 0;
+
+  if (!activeView) return;
+
+  function showView(name) {
+    const nextView = views.find((view) => view.dataset.view === name);
+    if (!nextView || nextView === activeView) return;
+
+    const previousView = activeView;
+    const currentTransition = ++transitionId;
+    activeView = nextView;
+
+    navButtons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(button.dataset.viewTarget === name));
+    });
+
+    viewLinks.forEach((link) => {
+      if (link instanceof HTMLAnchorElement) {
+        link.setAttribute('aria-current', String(link.dataset.viewTarget === name));
+      }
+    });
+
+    views.forEach((view) => {
+      view.classList.remove('is-active', 'is-entering', 'is-leaving');
+      view.inert = view !== nextView;
+      view.setAttribute('aria-hidden', String(view !== nextView));
+    });
+
+    if (reducedMotion) {
+      views.forEach((view) => {
+        view.classList.remove('is-off-left', 'is-off-right');
+      });
+      nextView.classList.add('is-active');
+      return;
+    }
+
+    previousView.classList.remove('is-off-left', 'is-off-right');
+    previousView.classList.add('is-leaving');
+    nextView.classList.remove('is-off-left', 'is-off-right');
+    nextView.classList.add('is-off-right', 'is-entering');
+    void nextView.offsetWidth;
+    requestAnimationFrame(() => {
+      if (currentTransition !== transitionId) return;
+      nextView.classList.remove('is-off-right');
+      nextView.classList.add('is-active');
+    });
+
+    window.setTimeout(() => {
+      if (currentTransition !== transitionId) return;
+      previousView.classList.remove('is-leaving');
+      previousView.classList.add('is-off-left');
+      nextView.classList.remove('is-entering');
+    }, 540);
+  }
+
+  viewLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const target = event.currentTarget;
+      if (!(target instanceof HTMLElement)) return;
+      const viewName = target.dataset.viewTarget;
+      if (!viewName) return;
+      event.preventDefault();
+      showView(viewName);
+    });
+  });
+
+  navButtons.forEach((button) => {
+    button.setAttribute('aria-pressed', String(button.dataset.viewTarget === activeView.dataset.view));
+  });
+})();
+
 // Fade in windows on first load with a slight stagger
 document.addEventListener('DOMContentLoaded', () => {
   const wins = Array.from(document.querySelectorAll('.win'));
   wins.forEach((win, i) => {
     setTimeout(() => win.classList.add('visible'), 100 + i * 80);
   });
+});
+
+// Project detail dialogs
+document.addEventListener('click', (event) => {
+  const target = event.target;
+  if (!(target instanceof Element)) return;
+
+  const openButton = target.closest('[data-open-dialog]');
+  if (openButton instanceof HTMLButtonElement) {
+    const dialogId = openButton.dataset.openDialog;
+    const dialog = dialogId ? document.getElementById(dialogId) : null;
+    if (dialog instanceof HTMLDialogElement) dialog.showModal();
+    return;
+  }
+
+  const closeButton = target.closest('[data-close-dialog]');
+  if (closeButton) {
+    const dialog = closeButton.closest('dialog');
+    if (dialog instanceof HTMLDialogElement) dialog.close();
+    return;
+  }
+
+  if (target instanceof HTMLDialogElement && target.classList.contains('project-dialog')) target.close();
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Escape') return;
+  const openDialog = document.querySelector('.project-dialog[open]');
+  if (openDialog instanceof HTMLDialogElement) {
+    event.preventDefault();
+    openDialog.close();
+  }
 });
 
 // Header reveal on scroll: show/hide .site-header-scrolled while keeping a static header visible
@@ -142,6 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
 ;(function () {
   const footer = document.querySelector('.index-page .site-footer, .underveil-page .site-footer');
   if (!footer) return;
+  if (document.body.classList.contains('index-page')) return;
 
   function updateFooter() {
     const distanceFromBottom = document.documentElement.scrollHeight - (window.scrollY + window.innerHeight);

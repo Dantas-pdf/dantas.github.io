@@ -220,7 +220,8 @@ a {
   align-items: center;
 }
 
-.site-nav a {
+.site-nav a,
+.site-nav button {
   font-family: Tahoma, Arial, sans-serif;
   font-weight: 700;
   font-size: 0.9rem;
@@ -230,10 +231,14 @@ a {
   border: 2px solid var(--win-border-dark);
   background: var(--win-button-face);
   box-shadow: inset 1px 1px 0 var(--win-border-light), 1px 1px 0 var(--win-border-dark);
+  cursor: pointer;
 }
 
 .site-nav a:hover,
-.site-nav a:focus-visible {
+.site-nav a:focus-visible,
+.site-nav button:hover,
+.site-nav button:focus-visible,
+.site-nav button[aria-pressed="true"] {
   transform: translateY(-1px);
 }
 
@@ -342,6 +347,11 @@ a {
   text-decoration: none;
   box-shadow: inset 1px 1px 0 var(--win-border-light), 1px 1px 0 var(--win-border-dark);
   transition: transform 0.12s ease, background-color 0.12s ease;
+  cursor: pointer;
+}
+
+.social-button:where(button) {
+  appearance: none;
 }
 
 .social-button i {
@@ -430,7 +440,7 @@ a {
   background-size: 100% auto;
   background-position: center top;
   background-repeat: no-repeat;
-  padding: var(--space-5) var(--space-2) var(--space-5);
+  padding: clamp(3rem, 7vw, var(--space-5)) var(--space-2);
   scroll-margin-top: var(--header-height);
   color: var(--paper);
 }
@@ -484,44 +494,147 @@ a {
 }
 
 .projects-list {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  max-width: calc(var(--max-width) - 2rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 22rem));
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.5rem;
+  max-width: calc(var(--max-width) - 4rem);
   margin: 0 auto;
 }
 
 .project-win {
-  width: 22rem;
-}
-
-/* Square project windows (UnderVeil, Calorie Tracker) */
-.project-win.square {
-  width: 20rem;
-  height: 20rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  width: 100%;
+  min-width: 0;
+  min-height: 24rem;
 }
 
-.project-win.square .window-body {
+.projects-list > .project-win {
+  width: 100%;
+}
+
+.project-win .window-body {
   display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.75rem;
+  padding: 1rem;
+  min-width: 0;
+}
+
+.project-win .project-title {
+  margin: 0;
+}
+
+.project-win .video-player {
+  width: 100%;
+  height: 11rem;
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.project-win .video-meta {
+  display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem;
-}
-
-.project-win.square .video-player {
-  width: calc(100% - 1rem);
-  height: 11rem;
-  margin: 0 auto;
-}
-
-.project-win.square .video-meta {
+  gap: 0.75rem;
+  padding-top: 0.25rem;
   text-align: center;
+}
+
+.project-win .video-meta .project-title {
+  margin: 0;
+}
+
+.project-win .video-meta .btn {
+  margin-top: auto;
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: auto;
+}
+
+.project-actions .btn {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.project-dialog {
+  width: min(42rem, calc(100vw - 2rem));
+  max-height: min(80vh, 48rem);
+  padding: 0;
+  border: 2px solid var(--win-border-dark);
+  background: var(--win-bg);
+  color: var(--space-indigo);
+  box-shadow: 0.5rem 0.5rem 0 rgba(34, 34, 59, 0.4);
+}
+
+.project-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-dialog::backdrop {
+  background: rgba(20, 20, 35, 0.65);
+  backdrop-filter: blur(2px);
+}
+
+.project-dialog .titlebar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.project-dialog .btn-win.close {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-left: 0.5rem;
+  padding: 0;
+  background: var(--win-button-face);
+  border: 2px solid var(--win-border-dark);
+  box-shadow: inset 1px 1px 0 var(--win-border-light);
+  color: var(--c-dark);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.project-dialog .btn-win.close:hover,
+.project-dialog .btn-win.close:focus-visible {
+  background: #f6f6f6;
+}
+
+.project-dialog-body {
+  min-height: 0;
+  padding: 1.25rem;
+  overflow-y: auto;
+}
+
+.project-dialog-body h2 {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.project-detail-list {
+  display: grid;
+  gap: 0.6rem;
+  padding-left: 1.25rem;
+  margin: 0 0 1.25rem;
+}
+
+.project-detail-list li {
+  padding-left: 0.15rem;
+}
+
+.project-detail-list + .btn {
+  display: inline-flex;
+  text-decoration: none;
 }
 
 /* ========================================================================
@@ -1312,5 +1425,360 @@ a {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+  }
+}
+
+/* Fixed desktop views used by the index page. */
+.index-page,
+.index-page body {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.index-page body {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+}
+
+.index-page .site-header.site-header-static {
+  z-index: 1100;
+}
+
+.index-page .title-controls .btn-win {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.index-page .site-header-inner {
+  padding: 0.75rem 1rem;
+}
+
+.index-page .desktop-stage {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: var(--c-red);
+  background-image: url("Images/windows95.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.index-page .app-view {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 5.25rem 1.25rem 5.5rem;
+  overflow: hidden;
+  background: transparent;
+  transform: translateX(105%);
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 520ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  will-change: transform;
+}
+
+.index-page .app-view.is-active,
+.index-page .app-view.is-entering,
+.index-page .app-view.is-leaving {
+  visibility: visible;
+}
+
+.index-page .app-view.is-active,
+.index-page .app-view.is-entering {
+  pointer-events: auto;
+}
+
+.index-page .app-view.is-active {
+  z-index: 2;
+  transform: translateX(0);
+}
+
+.index-page .app-view.is-entering {
+  z-index: 3;
+}
+
+.index-page .app-view.is-leaving {
+  z-index: 2;
+  transform: translateX(-105%);
+}
+
+.index-page .app-view.is-off-left {
+  transform: translateX(-105%);
+}
+
+.index-page .app-view .win {
+  margin: 0;
+}
+
+.index-page .home-window {
+  width: min(42rem, calc(100vw - 2.5rem));
+  max-height: 100%;
+}
+
+.index-page .home-window .window-body {
+  padding: clamp(1rem, 3vw, 2rem);
+}
+
+.index-page .hero-inner {
+  gap: clamp(1rem, 3vh, 2rem);
+  padding: 0;
+}
+
+.index-page .hero-copy {
+  gap: clamp(0.4rem, 1.3vh, 0.8rem);
+}
+
+.index-page .home-window .avatar {
+  width: clamp(5rem, 16vh, 8rem);
+  height: clamp(5rem, 16vh, 8rem);
+}
+
+.index-page .home-window .name {
+  font-size: clamp(2rem, 5vh, 3.25rem);
+}
+
+.index-page .home-window .tagline {
+  font-size: clamp(0.95rem, 2.5vh, 1.3rem);
+}
+
+.index-page .home-window .hero-copy br {
+  display: none;
+}
+
+.index-page .section-window {
+  width: min(68rem, calc(100vw - 2.5rem));
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.index-page .section-window > .window-body {
+  padding: clamp(0.65rem, 2vw, 1.25rem);
+}
+
+.index-page .skills-window {
+  width: min(58rem, calc(100vw - 2.5rem));
+}
+
+.index-page .skills-window > .window-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.index-page .skills-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.4rem, 1.5vw, 1rem);
+  width: min(100%, 40rem);
+  max-width: none;
+  margin: 0 auto;
+  padding: 0;
+  overflow: visible;
+}
+
+.index-page .skill-win {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  flex: initial;
+}
+
+.index-page .skill-win img {
+  width: clamp(2rem, 8vh, 4.6rem);
+  height: clamp(2rem, 8vh, 4.6rem);
+  margin: 0.2rem auto;
+}
+
+.index-page .skill-win .window-body {
+  padding: 0.3rem;
+}
+
+.index-page .skill-win .titlebar {
+  padding: 0.18rem 0.3rem;
+}
+
+.index-page .skill-win .title-controls {
+  display: none;
+}
+
+.index-page .skill-win .title {
+  font-size: clamp(0.55rem, 1.5vw, 0.72rem);
+}
+
+.index-page .skill-name {
+  margin-top: 0.1rem;
+  font-size: clamp(0.65rem, 1.8vw, 0.9rem);
+}
+
+.index-page .projects-window {
+  width: min(72rem, calc(100vw - 2.5rem));
+}
+
+.index-page .projects-window > .window-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.index-page .projects-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.6rem, 2vw, 1.25rem);
+  width: 100%;
+  max-width: 58rem;
+  margin: 0 auto;
+}
+
+.index-page .projects-list > .project-win {
+  width: 100%;
+  min-height: clamp(18rem, 46vh, 25rem);
+  margin: 0;
+}
+
+.index-page .project-win .window-body {
+  padding: clamp(0.65rem, 1.8vw, 1rem);
+}
+
+.index-page .project-win .video-player {
+  height: clamp(5rem, 21vh, 10rem);
+}
+
+.index-page .project-actions {
+  gap: 0.5rem;
+}
+
+.index-page .project-actions .btn {
+  padding: 0.35rem 0.5rem;
+  font-size: clamp(0.65rem, 1.8vw, 0.9rem);
+}
+
+.index-page .about-window {
+  width: min(48rem, calc(100vw - 2.5rem));
+}
+
+.index-page .about-window .window-body {
+  padding: clamp(1rem, 4vw, 2.25rem);
+}
+
+.index-page .about-window p {
+  max-width: 40rem;
+  margin: 0 auto 1rem;
+  color: var(--dusty-grape);
+  text-align: center;
+}
+
+.index-page .about-window p:last-child {
+  margin-bottom: 0;
+}
+
+.index-page .site-footer {
+  z-index: 1050;
+  transform: translate(-50%, 0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.index-page .site-footer.footer-visible {
+  transform: translate(-50%, 0);
+}
+
+.index-page .project-dialog {
+  z-index: 1200;
+}
+
+.index-page .site-nav {
+  gap: clamp(0.2rem, 1vw, 0.5rem);
+}
+
+.index-page .site-nav button {
+  padding: 0.35rem clamp(0.35rem, 1vw, 0.6rem);
+  white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  .index-page .site-header-inner {
+    padding: 0.6rem 0.5rem;
+  }
+
+  .index-page .logo {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .index-page .site-nav button {
+    font-size: 0.72rem;
+  }
+
+  .index-page .app-view {
+    padding: 4.5rem 0.5rem 5rem;
+  }
+
+  .index-page .home-window,
+  .index-page .section-window {
+    width: calc(100vw - 1rem);
+  }
+
+  .index-page .project-win .video-meta {
+    gap: 0.4rem;
+  }
+
+  .index-page .project-win .video-meta .project-title {
+    font-size: 1rem;
+  }
+
+  .index-page .project-win .project-summary {
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+
+  .index-page .project-win .title-controls {
+    display: none;
+  }
+
+  .index-page .project-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .index-page .project-actions .btn {
+    width: 100%;
+  }
+
+  .index-page .site-footer {
+    bottom: 0.5rem;
+  }
+}
+
+@media (max-height: 620px) {
+  .index-page .app-view {
+    padding-top: 4.5rem;
+    padding-bottom: 4rem;
+  }
+
+  .index-page .projects-list > .project-win {
+    min-height: 16rem;
+  }
+
+  .index-page .project-win .video-player {
+    height: 5rem;
+  }
+
+  .index-page .home-window .avatar {
+    width: 4.5rem;
+    height: 4.5rem;
   }
 }
