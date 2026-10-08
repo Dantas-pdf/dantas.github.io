@@ -399,34 +399,6 @@ a {
   max-width: 28rem;
 }
 
-.scroll-cue {
-  margin-top: var(--space-3);
-  width: 1.6rem;
-  height: 1.6rem;
-  border-right: 3px solid var(--paper);
-  border-bottom: 3px solid var(--paper);
-  transform: rotate(45deg);
-  animation: bob 2.2s ease-in-out infinite;
-  opacity: 0.85;
-}
-
-.scroll-cue:hover,
-.scroll-cue:focus-visible {
-  opacity: 1;
-}
-
-@keyframes bob {
-
-  0%,
-  100% {
-    transform: rotate(45deg) translate(0, 0);
-  }
-
-  50% {
-    transform: rotate(45deg) translate(0.4rem, 0.4rem);
-  }
-}
-
 /* ========================================================================
    PROJECTS
    Gradient continues from Steel Blue (where the hero left off) down
@@ -457,40 +429,10 @@ a {
   text-align: center;
 }
 
-.index-about .section-heading {
-  margin-bottom: var(--space-2);
-}
-
-.index-about p:not(.eyebrow) {
+.index-about p {
   max-width: 40rem;
   margin: 0 auto var(--space-2);
   color: var(--parchment);
-}
-
-.eyebrow {
-  margin: 0 0 var(--space-1);
-  color: var(--almond-silk);
-  font-family: var(--font-pixel);
-  font-size: 0.55rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.section-heading {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(1.6rem, 1.5vw + 1.2rem, 2.25rem);
-  text-align: center;
-  margin: 0 auto var(--space-4);
-  max-width: var(--max-width);
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-  gap: var(--space-3);
-  max-width: calc(var(--max-width) - 2rem);
-  margin: 0 auto;
 }
 
 .projects-list {
@@ -800,63 +742,8 @@ a {
   display: block;
 }
 
-.play-overlay {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  color: rgba(255, 255, 255, 0.95);
-  font-size: 2.2rem;
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
-  pointer-events: none;
-}
-
 .video-meta {
   padding-top: 0.75rem;
-}
-
-.project-card {
-  display: flex;
-  flex-direction: column;
-  aspect-ratio: 1 / 1;
-  text-decoration: none;
-  color: var(--c-dark);
-  border-radius: 0;
-  overflow: visible;
-  background: var(--win-bg);
-  border: 2px solid var(--win-border-dark);
-  box-shadow: 2px 2px 0 var(--win-border-dark), inset 1px 1px 0 var(--win-border-light);
-}
-
-.project-card:hover,
-.project-card:focus-visible {
-  transform: translateY(-1px);
-}
-
-
-.project-thumb {
-  flex: 0 0 60%;
-  background: var(--c-dark);
-  overflow: hidden;
-}
-
-.project-thumb img,
-.project-thumb svg {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  display: block;
-}
-
-.project-info {
-  flex: 1 1 40%;
-  padding: calc(var(--space-2) + 0.25rem) var(--space-3);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.35rem;
-  background: var(--c-dark);
-  border-top: 1px solid rgba(133, 57, 83, 0.25);
 }
 
 .project-title {
@@ -955,18 +842,6 @@ a {
   text-align: center;
 }
 
-.game-badge {
-  display: inline-block;
-  font-family: var(--font-pixel);
-  font-size: 0.55rem;
-  letter-spacing: 0.05em;
-  background: var(--c-purple);
-  color: var(--paper);
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.25rem;
-  margin-bottom: var(--space-2);
-}
-
 .game-title {
   font-family: var(--font-pixel);
   font-weight: 400;
@@ -1001,11 +876,6 @@ a {
   border: 1px solid rgba(72, 11, 11, 0.25);
   background: #b31515;
   position: relative;
-}
-
-.gallery svg {
-  width: 100%;
-  height: 100%;
 }
 
 .gallery figcaption {
@@ -1065,39 +935,6 @@ a {
   margin-bottom: var(--space-3);
 }
 
-.feature-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 var(--space-4);
-  display: grid;
-  gap: 0.75rem;
-}
-
-.feature-list li {
-  display: flex;
-  gap: 0.75rem;
-  align-items: baseline;
-  color: rgba(244, 250, 253, 0.85);
-}
-
-.feature-list li::before {
-  content: "";
-  flex: none;
-  width: 0.6rem;
-  height: 0.6rem;
-  background: var(--c-light);
-  margin-top: 0.35rem;
-}
-
-.tools-grid {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 var(--space-4);
-  display: grid;
-  grid-template-columns: repeat(4, minmax(5rem, 1fr));
-  gap: 0.75rem;
-}
-
 .omens-showcase {
   margin: var(--space-3) 0 var(--space-4);
   border: 1px solid rgba(183, 28, 28, 0.35);
@@ -1119,95 +956,11 @@ a {
   text-align: center;
 }
 
-.tool-card {
-  min-height: 7rem;
-  padding: 0.75rem 0.4rem 0.55rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.6rem;
-  background: rgba(183, 28, 28, 0.12);
-  border: 1px solid rgba(183, 28, 28, 0.35);
-  color: rgba(244, 250, 253, 0.92);
-  text-align: center;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.tool-card img {
-  width: 2.7rem;
-  height: 2.7rem;
-  object-fit: contain;
-}
-
-.tool-card i {
-  height: 2.7rem;
-  display: flex;
-  align-items: center;
-  font-size: 2.2rem;
-}
-
-.tool-card a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.tool-card a:hover,
-.tool-card a:focus-visible {
-  color: #ffffff;
-  text-decoration: underline;
-  text-underline-offset: 0.15rem;
-}
-
-@media (max-width: 480px) {
-  .tools-grid {
-    grid-template-columns: repeat(2, minmax(5rem, 1fr));
-  }
-}
-
 .meta-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
   margin-bottom: var(--space-4);
-}
-
-.fun-facts {
-  margin: 0 0 var(--space-4);
-  padding: 1rem;
-  border: 1px solid rgba(183, 28, 28, 0.35);
-  background: rgba(183, 28, 28, 0.08);
-}
-
-.fun-facts h2 {
-  margin-top: 0;
-}
-
-.fun-facts-list {
-  margin: 0;
-  padding-left: 1.25rem;
-  color: rgba(244, 250, 253, 0.85);
-}
-
-.fun-facts-list li + li {
-  margin-top: 0.6rem;
-}
-
-.budget-fact {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  padding-top: 0.75rem;
-  border-top: 1px solid rgba(183, 28, 28, 0.25);
-  color: rgba(244, 250, 253, 0.9);
-}
-
-.budget-fact strong {
-  color: var(--uv-red);
-  font-family: var(--font-pixel);
-  font-size: 1rem;
 }
 
 .meta-pill {
@@ -1236,12 +989,6 @@ a {
   text-shadow: 0.12rem 0.12rem 0 rgba(0, 0, 0, 0.6);
 }
 
-.project-hero.underveil .game-badge {
-  background: rgba(183, 28, 28, 0.12);
-  color: var(--uv-red);
-  border: 1px solid rgba(183, 28, 28, 0.18);
-}
-
 .project-hero.underveil .back-link {
   color: rgba(244, 250, 253, 0.85);
 }
@@ -1255,8 +1002,7 @@ a {
   color: var(--uv-red);
 }
 
-.about-section p,
-.about-section .feature-list li {
+.about-section p {
   color: rgba(244, 250, 253, 0.85);
 }
 
@@ -1264,16 +1010,6 @@ a {
   border-color: rgba(183, 28, 28, 0.3);
   background: rgba(183, 28, 28, 0.04);
   color: rgba(244, 250, 253, 0.9);
-}
-
-/* Ensure the feature-list bullets in the following about section use the UnderVeil red */
-.project-hero.underveil~.about-section .feature-list li::before {
-  background: var(--uv-red);
-}
-
-/* Use UnderVeil palette for its feature bullets */
-.project-hero.underveil .feature-list li::before {
-  background: var(--uv-red);
 }
 
 /* Image modal (lightbox) used by project pages */
@@ -1395,10 +1131,6 @@ a {
 .index-page .name,
 .index-page .tagline {
   color: var(--space-indigo);
-}
-
-.index-page .scroll-cue {
-  border-color: var(--space-indigo);
 }
 
 .index-page .project-title {
